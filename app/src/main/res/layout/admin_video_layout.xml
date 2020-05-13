@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content">
+
+    <TextView
+        android:id="@+id/URlVideo"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="4dp"
+        android:layout_marginLeft="4dp"
+        android:layout_marginEnd="8dp"
+        android:layout_marginRight="8dp"
+        android:fontFamily="casual"
+        android:gravity="center"
+        android:text="URL"
+        android:textColor="@android:color/black"
+        android:textStyle="bold|italic"
+        app:layout_constraintEnd_toStartOf="@+id/TitreVideo"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textView62" />
+
+    <TextView
+        android:id="@+id/TitreVideo"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="8dp"
+        android:layout_marginLeft="8dp"
+        android:layout_marginEnd="8dp"
+        android:layout_marginRight="8dp"
+        android:fontFamily="casual"
+        android:gravity="center"
+        android:text="Title"
+        android:textColor="@android:color/black"
+        android:textStyle="bold|italic"
+        app:layout_constraintEnd_toStartOf="@+id/TypeVideo"
+        app:layout_constraintStart_toEndOf="@+id/URlVideo"
+        app:layout_constraintTop_toBottomOf="@+id/textView62" />
+
+    <TextView
+        android:id="@+id/TypeVideo"
+        android:layout_width="64dp"
+        android:layout_height="18dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginLeft="8dp"
+        android:layout_marginEnd="8dp"
+        android:layout_marginRight="8dp"
+        android:fontFamily="casual"
+        android:gravity="center"
+        android:text="Type"
+        android:textColor="@android:color/black"
+        android:textStyle="bold|italic"
+        app:layout_constraintEnd_toStartOf="@+id/Delete"
+        app:layout_constraintStart_toEndOf="@+id/TitreVideo"
+        app:layout_constraintTop_toBottomOf="@+id/textView62" />
+
+    <Button
+        android:id="@+id/Delete"
+        android:layout_width="54dp"
+        android:layout_height="27dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginLeft="8dp"
+        android:background="@drawable/ic_delete_forever_black_24dp"
+        android:visibility="visible"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/TypeVideo"
+        app:layout_constraintTop_toBottomOf="@+id/textView62" />
+</android.support.constraint.ConstraintLayout>

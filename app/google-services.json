@@ -1,0 +1,49 @@
+{
+  "project_info": {
+    "project_number": "386731171770",
+    "firebase_url": "https://pfe12-381d2.firebaseio.com",
+    "project_id": "pfe12-381d2",
+    "storage_bucket": "pfe12-381d2.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:386731171770:android:1119fa895543a97a",
+        "android_client_info": {
+          "package_name": "com.exemple.stage"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "386731171770-n65r4m0dviaoefnjehogjlka8lh3vdjg.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.exemple.stage",
+            "certificate_hash": "69350b9c51871821b0a21875cc9e3b4f83173771"
+          }
+        },
+        {
+          "client_id": "386731171770-s013to97je3osl16rlh216npli1qpjhm.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCpcH9DVVZsBsnRFWw2nSG_WsAkQxitg20"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "386731171770-s013to97je3osl16rlh216npli1qpjhm.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      },
+      "admob_app_id": "ca-app-pub-8004564561830355~1203769567"
+    }
+  ],
+  "configuration_version": "1"
+}

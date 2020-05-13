@@ -1,0 +1,331 @@
+<resources>
+    <!--Created By GHOUADN AYOUB-->
+    <string name="app_name">SoftGym</string>
+    <string name="quot">The Perfect Mind In The Healthy Body</string>
+    <string name="right">All Rights Reserved</string>
+    <string name="title_activity_home">Home</string>
+    <string name="navigation_drawer_open">Open navigation drawer</string>
+    <string name="navigation_drawer_close">Close navigation drawer</string>
+    <string name="nav_header_title">Android Studio</string>
+    <string name="nav_header_subtitle">android.studio@android.com</string>
+    <string name="nav_header_desc">Navigation header</string>
+    <string name="action_settings">Legal Notice</string>
+    <string name="about0">About Us</string>
+    <string name="about1">
+        With his experience of more than 10 years in the field sabine the professional sports coach. Favoring quality over quanti
+        .Specialized in sports coaching at home for over 10 years, SABINE also offers Visio Coaching and online coaching.For each of these services,
+        only one watchword: the tailor-made!</string>
+    <string name="about5text">Un coaching 100 % personnalisé !</string>
+    <string name="about5">
+        Se faire accompagner par un véritable coach sportif professionnel c’est bien… avec un suivi individuel c’est encore mieux !Bénéficier des
+        services d’un entraîneur qui s’occupe uniquement de vous c’est la garantie de progresser plus vite en évitant tout risque de blessure.Votre
+        programme est 100 % personnalisé, en fonction de vos objectifs mais également de vos capacités et disponibilités.Votre coach est toujours à vos
+        côtés, pour vous motiver, et à votre écoute, pour ajuster votre entraînement si besoin.
+    </string>
+    <string name="sabine_softgym">Sabine SoftGym</string>
+    <string name="goal">Reach Your Goals With A Professional Sports Coach</string>
+    <string name="goalText">
+        Sabine Soft GYM is a competent and professional sports coach who offers you a high quality service.Due to its training and experience, sabine
+        will offer you a sports program adapted and customized according to your abilities, availability and objectives.Discover our different offers:
+        online coaching and Visio Coaching.
+    </string>
+    <string name="Exper">Experience</string>
+    <string name="experText">
+        With her experience of more than 10 years in the field sabine the professional sports coach.Favoring quality over quantity.Specialized in
+        sports coaching at home for over 10 years, SABINE also offers Video Coaching and online coaching.
+    </string>
+    <string name="Reasons">3 Reasons To Start Your Subscription</string>
+    <string name="Professionalism">Professionalism</string>
+    <string name="OnlineCoaching">Online Coaching</string>
+    <string name="LoginForMore">Subscribe</string>
+
+    <!--formulaire -->
+    <string name="benefice">Get professional support remotely</string>
+    <string name="buttonformulaire">Discover</string>
+    <string name="benefice2">Get the best tools to succeed</string>
+    <string name="beneficeText">
+        Thanks to our online video we offer you an all-in-one online coaching service to achieve your goals: a training program adapted to your
+        abilities and objectives, nutritional monitoring, interactive interface, progress monitoring, encouragement and challenges to stay motivated
+        … all accessible from your smartphone, tablet, computer, wherever and whenever you want!
+    </string>
+    <string name="choixFormulaire">Choose your Online Coaching Formula</string>
+    <string name="package3mois">3 Months Package</string>
+    <string name="price3mois">14,90 €/Month</string>
+    <string name="package6mois">6 Months Package</string>
+    <string name="price6mois">12,90 €/Month</string>
+    <string name="package12mois">12 Months Package</string>
+    <string name="price12mois">9,90 €/Month</string>
+    <string name="packagecontent">Complete virtual training
+        Standard training program
+        Create your own sessions
+        Advanced nutrition system
+        Personal and group challenges
+        Progress monitoring</string>
+    <string name="total3mois">44.70 €</string>
+    <string name="total6mois">77.40 €</string>
+    <string name="total12mois">118.80 €</string>
+
+    <!--profile-->
+    <string name="SignIN">Sign In</string>
+    <string name="Login">Log In</string>
+    <string name="CreateAccount">Create Account</string>
+    <string name="DontHaveAccount">Dont Have An Account?</string>
+    <string name="forgotPassword">Forgot your password?</string>
+
+    <!--Create Account-->
+    <string name="Name">Name</string>
+    <string name="Username">Username</string>
+    <string name="Password">Password</string>
+    <string name="ConfirmPassword">Confirm Password</string>
+    <string name="EmailAddress">Email Address</string>
+    <string name="ConfirmEmailAddress">Confirm Email Address</string>
+    <string name="Address">Address</string>
+    <string name="City">City</string>
+    <string name="Country">Country</string>
+    <string name="postalZipCode">Postal/Zip Code</string>
+    <string name="Phone">Phone</string>
+
+    <string name="Register">Register</string>
+    <string name="Cancel">Cancel</string>
+    <string name="Welcome">SoftGym</string>
+    <string name="title_activity_profile">profile</string>
+
+    <string name="player_error">Error initializing YouTube player: %s</string>
+    <string name="seek_to">Jump To</string>
+    <string name="seek_to_hint">Seconds</string>
+
+    <string name="todo">hh</string>
+
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+
+    <string name="Apropos">
+        Marketing Concept Sarl, a Web and Communication Development Agency in Marrakech, has a dynamic team of specialists whose goal is to provide you
+        with a complete range of services and strategies related to web development, and who work full time at the realization, management and SEO of
+        websites.Marketing Concept Sarl is specialized in web design and SEO and offers various services and allow you to have not only a stylish and
+        fast website, but also to be listed among the top sites lists in most major search engines such as Google, Yahoo, Bing Envoyer des commentaires
+        Historique, Enregistré, Communauté
+    </string>
+
+    <string name="banner_ad_unit_id">ca-app-pub-8004564561830355~1203769567</string>
+    <string name="chapter_1">Chapter 1 :</string>
+
+
+    <!-- Screens background color-->
+    <color name="bg_screen1">#f64c73</color>
+    <color name="bg_screen2">#20d2bb</color>
+    <color name="bg_screen3">#3395FF</color>
+    <color name="bg_screen4">#BF83D1</color>
+
+    <!-- dots inactive colors -->
+    <color name="dot_dark_screen1">#d1395c</color>
+    <color name="dot_dark_screen2">#14a895</color>
+    <color name="dot_dark_screen3">#2278d4</color>
+    <color name="dot_dark_screen4">#A854D4</color>
+
+    <!-- dots active colors -->
+    <color name="dot_light_screen1">#f98da5</color>
+    <color name="dot_light_screen2">#8cf9eb</color>
+    <color name="dot_light_screen3">#93c6fd</color>
+    <color name="dot_light_screen4">#E4B5FC</color>
+
+    <array name="array_dot_active">
+        <item>@color/dot_light_screen1</item>
+        <item>@color/dot_light_screen2</item>
+        <item>@color/dot_light_screen3</item>
+        <item>@color/dot_light_screen4</item>
+    </array>
+
+    <array name="array_dot_inactive">
+        <item>@color/dot_dark_screen1</item>
+        <item>@color/dot_dark_screen2</item>
+        <item>@color/dot_dark_screen3</item>
+        <item>@color/dot_dark_screen4</item>
+    </array>
+    <string name="title_activity_adminside1">ADMINside1</string>
+
+
+    <string name="licence">
+        TERMS AND CONDITIONS FOR USE, REPRODUCTION, AND DISTRIBUTION
+        1. Definitions.
+        "License" shall mean the terms and conditions for use, reproduction, and distribution as defined by Sections 1 through 9 of this document.
+        "Licensor" shall mean the copyright owner or entity authorized by the copyright owner that is granting the License.
+        "Legal Entity" shall mean the union of the acting entity and all other entities that control, are controlled by, or are under common control with that entity. For the purposes of this definition, "control" means (i) the power, direct or indirect, to cause the direction or management of such entity, whether by contract or otherwise, or (ii) ownership of fifty percent (50%) or more of the outstanding shares, or (iii)  beneficial ownership of such entity."You" (or "Your") shall mean an individual or Legal Entity exercising permissions granted by this License.
+        "Source" form shall mean the preferred form for making modifications, including but not limited to software source code, documentation source, and configuration files."Object" form shall mean any form resulting from mechanical transformation or translation of a Source form, including but not limited to compiled object code, generated documentation, and conversions to other media types.
+        "Work" shall mean the work of authorship, whether in Source or Object form, made available under the License, as indicated by a copyright notice that is included in or attached to the work (an example is provided in the Appendix below).
+        "Derivative Works" shall mean any work, whether in Source or Object form, that is based on (or derived from) the Work and for which the editorial revisions, annotations, elaborations, or other modifications represent, as a whole, an original work of authorship. For the purposes of this License, Derivative Works shall not include works that remain separable from, or merely link (or bind by name) to the interfaces of, the Work and Derivative Works thereof.
+
+        "Contribution" shall mean any work of authorship, including the original version of the Work and any modifications or additions to that Work or Derivative Works thereof, that is intentionally submitted to Licensor for inclusion in the Work by the copyright owner or by an individual or  Legal Entity authorized to submit on behalf of the copyright owner. For the purposes of this definition, "submitted" means any form of electronic, verbal, or written communication sent to the Licensor or its representatives, including but not limited to communication on electronic mailing lists, source code control systems, and issue tracking systems that are managed by, or on behalf of, the Licensor for the purpose of discussing and improving the Work, but excluding communication that is conspicuously marked or otherwise designated in writing by the copyright owner as "Not a Contribution."
+
+        "Contributor" shall mean Licensor and any individual or Legal Entity on behalf of whom a Contribution has been received by Licensor and subsequently incorporated within the Work.
+        2. Grant of Copyright License. Subject to the terms and conditions of this License, each Contributor hereby grants to You a perpetual,
+        worldwide, non-exclusive, no-charge, royalty-free, irrevocable copyright license to reproduce, prepare Derivative Works of, publicly display, publicly perform, sublicense, and distribute the Work and such Derivative Works in Source or Object form.
+
+        3. Grant of Patent License. Subject to the terms and conditions of this License, each Contributor hereby grants to You a perpetual, worldwide,non-exclusive, no-charge, royalty-free, irrevocable (except as stated in this section) patent license to make, have made, use, offer to sell,sell, import, and otherwise transfer the Work, where such license applies only to those patent claims licensable by such Contributor that are necessarily infringed by their Contribution(s) alone or by combination of their Contribution(s) with the Work to which such Contribution(s) was submitted. If You institute patent litigation against any entity (including a cross-claim or counterclaim in a lawsuit) alleging that the Work or a Contribution incorporated within the Work constitutes direct or contributory patent infringement, then any patent licenses granted to You under this License for that Work shall terminate as of the date such litigation is filed.
+
+        4. Redistribution. You may reproduce and distribute copies of the Work or Derivative Works thereof in any medium, with or without modifications,and in Source or Object form, provided that You meet the following conditions: You must give any other recipients of the Work or Derivative Works a copy of this License; and You must cause any modified files to carry prominent notices stating that You changed the files; and You must retain, in the Source form of any Derivative Works that You distribute, all copyright, patent, trademark, and attribution notices from the Source form of the Work, excluding those notices that do not pertain to any part of the Derivative Works; and If the Work includes a "NOTICE" text file as part of its distribution, then any Derivative Works that You distribute must include a readable copy of the attribution notices contained within such NOTICE file, excluding those notices that do not pertain to any part of the Derivative Works, in at least one of the following places: within a NOTICE text file distributed as part of the Derivative Works; within the Source form or documentation, if provided along with the Derivative Works; or, within a display generated by the Derivative Works, if and wherever such third-party notices normally appear. The contents of the NOTICE file are for informational purposes only and do not modify the License. You may add Your own attribution notices within Derivative Works that You distribute, alongside or as an addendum to the NOTICE text from the Work,provided that such additional attribution notices cannot be construed as modifying the License. You may add Your own copyright statement to Your modifications and may provide additional or different license terms and conditions for use, reproduction, or distribution of Your modifications, or for any such Derivative Works as a whole, provided Your use, reproduction, and distribution of the Work otherwise complies with the conditions stated in this License.
+
+        5. Submission of Contributions. Unless You explicitly state otherwise, any Contribution intentionally submitted for inclusion in the Work by You to the Licensor shall be under the terms and conditions of this License, without any additional terms or conditions. Notwithstanding the above, nothing herein shall supersede or modify the terms of any separate license agreement you may have executed with Licensor regarding such Contributions.
+
+        6. Trademarks. This License does not grant permission to use the trade names, trademarks, service marks, or product names of the Licensor, except as required for reasonable and customary use in describing the origin of the Work and reproducing the content of the NOTICE file.
+
+        7. Disclaimer of Warranty. Unless required by applicable law or agreed to in writing, Licensor provides the Work (and each Contributor provides its Contributions) on an "AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied, including, without limitation, any warranties or conditions of TITLE, NON-INFRINGEMENT, MERCHANTABILITY, or FITNESS FOR A PARTICULAR PURPOSE. You are solely responsible for determining the appropriateness of using or redistributing the Work and assume any risks associated with Your exercise of permissions under this License.
+
+        8. Limitation of Liability. In no event and under no legal theory, whether in tort (including negligence), contract, or otherwise, unless required by applicable law (such as deliberate and grossly negligent acts) or agreed to in writing, shall any Contributor be liable to You for damages, including any direct, indirect, special, incidental, or consequential damages of any character arising as a result of this License or out of the use or inability to use the Work (including but not limited to damages for loss of goodwill, work stoppage, computer failure or malfunction, or any and all other commercial damages or losses), even if such Contributor has been advised of the possibility of such damages.
+
+        9. Accepting Warranty or Additional Liability. While redistributing the Work or Derivative Works thereof, You may choose to offer, and charge a fee for, acceptance of support, warranty, indemnity, or other liability obligations and/or rights consistent with this License. However, in accepting such obligations, You may act only on Your own behalf and on Your sole responsibility, not on behalf of any other Contributor, and only if You agree to indemnify, defend, and hold each Contributor harmless for any liability incurred by, or claims asserted against, such Contributor by reason of your accepting any such warranty or additional liability.
+        "Copyright [2019] [AYOUB GHOUDAN]
+        Licensed under the Apache License, Version 2.0 (the "License"); you may not use this file except in compliance with the License. You may obtain a copy of the License at
+        http://www.apache.org/licenses/LICENSE-2.0
+        Unless required by applicable law or agreed to in writing, software distributed under the License is distributed on an "AS IS"
+        BASIS, WITHOUT  WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied. See the License for the specific language
+        governing permissions and limitations under the License."
+    </string>
+
+    <!--ADS Mobile-->
+    <string name="title_activity_ads">adsActivity</string>
+    <string name="interstitial_ad_sample">Interstitial Ad Sample</string>
+    <string name="start_level">Level 1</string>
+    <string name="next_level">Next Level</string>
+    <string name="interstitial_ad_unit_id">ca-app-pub-8004564561830355/2826047819</string>
+    <string name="settings">Settings</string>
+    <string name="apropos">Apropos :</string>
+    <string name="version_1_0">Version : 1.0</string>
+    <string name="feedback">FeedBack</string>
+    <string name="licences">Licence :</string>
+    <string name="text">Text</string>
+    <string name="phone">Phone</string>
+    <string name="gmail">Gmail</string>
+    <string name="contact_us">Contact Us</string>
+    <string name="name">Name</string>
+    <string name="subject">subject</string>
+    <string name="practices">PRACTICE</string>
+    <string name="planning">PLANNING</string>
+    <string name="status">Status</string>
+    <string name="days">Days</string>
+    <string name="approved">Approved</string>
+    <string name="home">Home</string>
+    <string name="online_coaching">Online Coaching</string>
+    <string name="disconnect">Disconnect</string>
+    <string name="change_profile_photo">Change Profile Picture</string>
+    <string name="edit_profile">Edit profile</string>
+    <string name="chat">Chat</string>
+    <string name="favoris">Favoris</string>
+    <string name="title_activity_start">start</string>
+    <string name="more_info">More info</string>
+    <string name="share">Share</string>
+    <string name="music">Music</string>
+    <string name="assistance">Assistance</string>
+    <string name="calendar">Calendar</string>
+    <string name="practice">Practice</string>
+
+
+    <!--=== activity Setting =================================================================== -->
+    <string name="default_notification_channel_id">Default</string>
+    <string name="developer_name">GHOUDAN AYOUB</string>
+    <string name="copyright">Copyright © 2019 APATCH 2.0 \nAll right reserved</string>
+    <string name="pref_category_notif">Notifications</string>
+    <string name="pref_category_display">Display</string>
+    <string name="pref_category_other">Others</string>
+
+    <string name="pref_title_notif">Push Notifications</string>
+    <string name="pref_title_ringtone">Ringtone</string>
+    <string name="pref_title_vibrate">Vibrate</string>
+    <string name="pref_title_cache">Clear Image Cache</string>
+    <string name="pref_title_theme">Theme Color</string>
+    <string name="pref_title_more">More Apps</string>
+    <string name="pref_title_rate">Rate</string>
+    <string name="pref_title_about">About</string>
+    <string name="pref_ringtone_silent">Silent</string>
+    <string name="pref_title_copyright">Copyright</string>
+    <string name="pref_title_dev_name">Developed By</string>
+    <string name="pref_title_term">Term &amp; Policies</string>
+
+    <string name="pref_key_notif">key_notifications</string>
+    <string name="pref_key_ringtone">key_ringtone</string>
+    <string name="pref_key_vibrate">key_vibrate</string>
+    <string name="pref_key_reset_cache">key_reset_cache</string>
+    <string name="pref_key_theme">key_theme</string>
+    <string name="dialog_confirm_title">Confirmation</string>
+    <string name="dialog_about_title">About</string>
+    <string name="activity_title_settings">Settings</string>
+
+    <string name="message_clear_image_cache">Are you sure want to clear image cache?</string>
+    <string name="message_after_clear_image_cache">Image cache successfully clear</string>
+    <string name="title_dialog_theme">Color Theme</string>
+    <string name="grant_permission_account_storage">Grant account, storage permission to enable</string>
+    <string name="content_term">Apache License
+
+Version 2.0, January 2004
+
+http://www.apache.org/licenses/
+
+TERMS AND CONDITIONS FOR USE, REPRODUCTION, AND DISTRIBUTION
+
+1. Definitions.
+
+"License" shall mean the terms and conditions for use, reproduction, and distribution as defined by Sections 1 through 9 of this document.
+
+"Licensor" shall mean the copyright owner or entity authorized by the copyright owner that is granting the License.
+
+"Legal Entity" shall mean the union of the acting entity and all other entities that control, are controlled by, or are under common control with that entity. For the purposes of this definition, "control" means (i) the power, direct or indirect, to cause the direction or management of such entity, whether by contract or otherwise, or (ii) ownership of fifty percent (50%) or more of the outstanding shares, or (iii) beneficial ownership of such entity.
+
+"You" (or "Your") shall mean an individual or Legal Entity exercising permissions granted by this License.
+
+"Source" form shall mean the preferred form for making modifications, including but not limited to software source code, documentation source, and configuration files.
+
+"Object" form shall mean any form resulting from mechanical transformation or translation of a Source form, including but not limited to compiled object code, generated documentation, and conversions to other media types.
+
+"Work" shall mean the work of authorship, whether in Source or Object form, made available under the License, as indicated by a copyright notice that is included in or attached to the work (an example is provided in the Appendix below).
+
+"Derivative Works" shall mean any work, whether in Source or Object form, that is based on (or derived from) the Work and for which the editorial revisions, annotations, elaborations, or other modifications represent, as a whole, an original work of authorship. For the purposes of this License, Derivative Works shall not include works that remain separable from, or merely link (or bind by name) to the interfaces of, the Work and Derivative Works thereof.
+
+"Contribution" shall mean any work of authorship, including the original version of the Work and any modifications or additions to that Work or Derivative Works thereof, that is intentionally submitted to Licensor for inclusion in the Work by the copyright owner or by an individual or Legal Entity authorized to submit on behalf of the copyright owner. For the purposes of this definition, "submitted" means any form of electronic, verbal, or written communication sent to the Licensor or its representatives, including but not limited to communication on electronic mailing lists, source code control systems, and issue tracking systems that are managed by, or on behalf of, the Licensor for the purpose of discussing and improving the Work, but excluding communication that is conspicuously marked or otherwise designated in writing by the copyright owner as "Not a Contribution."
+
+"Contributor" shall mean Licensor and any individual or Legal Entity on behalf of whom a Contribution has been received by Licensor and subsequently incorporated within the Work.
+
+2. Grant of Copyright License. Subject to the terms and conditions of this License, each Contributor hereby grants to You a perpetual, worldwide, non-exclusive, no-charge, royalty-free, irrevocable copyright license to reproduce, prepare Derivative Works of, publicly display, publicly perform, sublicense, and distribute the Work and such Derivative Works in Source or Object form.
+
+3. Grant of Patent License. Subject to the terms and conditions of this License, each Contributor hereby grants to You a perpetual, worldwide, non-exclusive, no-charge, royalty-free, irrevocable (except as stated in this section) patent license to make, have made, use, offer to sell, sell, import, and otherwise transfer the Work, where such license applies only to those patent claims licensable by such Contributor that are necessarily infringed by their Contribution(s) alone or by combination of their Contribution(s) with the Work to which such Contribution(s) was submitted. If You institute patent litigation against any entity (including a cross-claim or counterclaim in a lawsuit) alleging that the Work or a Contribution incorporated within the Work constitutes direct or contributory patent infringement, then any patent licenses granted to You under this License for that Work shall terminate as of the date such litigation is filed.
+
+4. Redistribution. You may reproduce and distribute copies of the Work or Derivative Works thereof in any medium, with or without modifications, and in Source or Object form, provided that You meet the following conditions:
+
+You must give any other recipients of the Work or Derivative Works a copy of this License; and
+You must cause any modified files to carry prominent notices stating that You changed the files; and
+You must retain, in the Source form of any Derivative Works that You distribute, all copyright, patent, trademark, and attribution notices from the Source form of the Work, excluding those notices that do not pertain to any part of the Derivative Works; and
+If the Work includes a "NOTICE" text file as part of its distribution, then any Derivative Works that You distribute must include a readable copy of the attribution notices contained within such NOTICE file, excluding those notices that do not pertain to any part of the Derivative Works, in at least one of the following places: within a NOTICE text file distributed as part of the Derivative Works; within the Source form or documentation, if provided along with the Derivative Works; or, within a display generated by the Derivative Works, if and wherever such third-party notices normally appear. The contents of the NOTICE file are for informational purposes only and do not modify the License. You may add Your own attribution notices within Derivative Works that You distribute, alongside or as an addendum to the NOTICE text from the Work, provided that such additional attribution notices cannot be construed as modifying the License.
+
+You may add Your own copyright statement to Your modifications and may provide additional or different license terms and conditions for use, reproduction, or distribution of Your modifications, or for any such Derivative Works as a whole, provided Your use, reproduction, and distribution of the Work otherwise complies with the conditions stated in this License.
+5. Submission of Contributions. Unless You explicitly state otherwise, any Contribution intentionally submitted for inclusion in the Work by You to the Licensor shall be under the terms and conditions of this License, without any additional terms or conditions. Notwithstanding the above, nothing herein shall supersede or modify the terms of any separate license agreement you may have executed with Licensor regarding such Contributions.
+
+6. Trademarks. This License does not grant permission to use the trade names, trademarks, service marks, or product names of the Licensor, except as required for reasonable and customary use in describing the origin of the Work and reproducing the content of the NOTICE file.
+
+7. Disclaimer of Warranty. Unless required by applicable law or agreed to in writing, Licensor provides the Work (and each Contributor provides its Contributions) on an "AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied, including, without limitation, any warranties or conditions of TITLE, NON-INFRINGEMENT, MERCHANTABILITY, or FITNESS FOR A PARTICULAR PURPOSE. You are solely responsible for determining the appropriateness of using or redistributing the Work and assume any risks associated with Your exercise of permissions under this License.
+
+8. Limitation of Liability. In no event and under no legal theory, whether in tort (including negligence), contract, or otherwise, unless required by applicable law (such as deliberate and grossly negligent acts) or agreed to in writing, shall any Contributor be liable to You for damages, including any direct, indirect, special, incidental, or consequential damages of any character arising as a result of this License or out of the use or inability to use the Work (including but not limited to damages for loss of goodwill, work stoppage, computer failure or malfunction, or any and all other commercial damages or losses), even if such Contributor has been advised of the possibility of such damages.
+
+9. Accepting Warranty or Additional Liability. While redistributing the Work or Derivative Works thereof, You may choose to offer, and charge a fee for, acceptance of support, warranty, indemnity, or other liability obligations and/or rights consistent with this License. However, in accepting such obligations, You may act only on Your own behalf and on Your sole responsibility, not on behalf of any other Contributor, and only if You agree to indemnify, defend, and hold each Contributor harmless for any liability incurred by, or claims asserted against, such Contributor by reason of your accepting any such warranty or additional liability.
+
+END OF TERMS AND CONDITIONS
+
+        Copyright [2019] [GHOUDAN AYOUB]
+
+Licensed under the Apache License, Version 2.0 (the "License");
+you may not use this file except in compliance with the License.
+You may obtain a copy of the License at
+
+    http://www.apache.org/licenses/LICENSE-2.0
+
+Unless required by applicable law or agreed to in writing, software
+distributed under the License is distributed on an "AS IS" BASIS,
+WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+See the License for the specific language governing permissions and
+limitations under the License.
+    </string>
+
+    <string name="rate_us">Rate us</string>
+    <string name="about">About</string>
+    <string name="AB">About</string>
+    <string name="RR">Created By GHOUDAN AYOUB ALL RIGHT RESERVER</string>
+</resources>
+

@@ -1,0 +1,108 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".Admin.AdminVideoListActivity">
+
+    <TextView
+        android:id="@+id/textView62"
+        android:layout_width="0dp"
+        android:layout_height="56dp"
+        android:background="@color/deeppurple"
+        android:fontFamily="sans-serif-condensed-medium"
+        android:gravity="center_vertical"
+        android:paddingLeft="10dp"
+        android:text="Video List"
+        android:textColor="@color/white"
+        android:textSize="18sp"
+        android:textStyle="bold|italic"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <Button
+        android:id="@+id/Add"
+        android:layout_width="57dp"
+        android:layout_height="wrap_content"
+        android:background="@drawable/ic_control_point_black_24dp"
+        app:layout_constraintBottom_toTopOf="@+id/TitreVideo"
+        app:layout_constraintEnd_toEndOf="@+id/textView62"
+        app:layout_constraintTop_toTopOf="@+id/textView62" />
+
+
+    <TextView
+        android:id="@+id/URlVideo"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="4dp"
+        android:layout_marginLeft="4dp"
+        android:layout_marginEnd="8dp"
+        android:layout_marginRight="8dp"
+        android:fontFamily="sans-serif-condensed-medium"
+        android:gravity="center"
+        android:text="URL"
+        android:textColor="@android:color/black"
+        android:textStyle="bold|italic"
+        app:layout_constraintEnd_toStartOf="@+id/TitreVideo"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textView62" />
+
+    <TextView
+        android:id="@+id/TitreVideo"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="8dp"
+        android:layout_marginLeft="8dp"
+        android:layout_marginEnd="8dp"
+        android:layout_marginRight="8dp"
+        android:fontFamily="sans-serif-condensed-medium"
+        android:gravity="center"
+        android:text="Title"
+        android:textColor="@android:color/black"
+        android:textStyle="bold|italic"
+        app:layout_constraintEnd_toStartOf="@+id/TypeVideo"
+        app:layout_constraintStart_toEndOf="@+id/URlVideo"
+        app:layout_constraintTop_toBottomOf="@+id/textView62" />
+
+    <TextView
+        android:id="@+id/TypeVideo"
+        android:layout_width="64dp"
+        android:layout_height="0dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginLeft="8dp"
+        android:layout_marginEnd="8dp"
+        android:layout_marginRight="8dp"
+        android:fontFamily="sans-serif-condensed-medium"
+        android:gravity="center"
+        android:text="Type"
+        android:textColor="@android:color/black"
+        android:textStyle="bold|italic"
+        app:layout_constraintEnd_toStartOf="@+id/Delete"
+        app:layout_constraintStart_toEndOf="@+id/TitreVideo"
+        app:layout_constraintTop_toBottomOf="@+id/textView62" />
+
+    <Button
+        android:id="@+id/Delete"
+        android:layout_width="54dp"
+        android:layout_height="27dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginLeft="8dp"
+        android:background="@drawable/ic_delete_forever_black_24dp"
+        android:visibility="invisible"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/TypeVideo"
+        app:layout_constraintTop_toBottomOf="@+id/textView62" />
+
+    <android.support.v7.widget.RecyclerView
+        android:id="@+id/RecycleViewAdminVideo"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_marginTop="4dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/TitreVideo"
+        tools:listitem="@layout/admin_video_layout" />
+</android.support.constraint.ConstraintLayout>

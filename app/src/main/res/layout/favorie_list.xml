@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content">
+
+    <android.support.constraint.ConstraintLayout
+        android:id="@+id/ct"
+        android:layout_width="150dp"
+        android:layout_height="match_parent"
+        android:layout_marginBottom="10dp"
+        android:background="@drawable/cerclebackgroundgreen">
+
+        <Button
+            android:id="@+id/buttonv"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:layout_marginStart="8dp"
+            android:layout_marginLeft="8dp"
+            android:layout_marginEnd="8dp"
+            android:layout_marginRight="8dp"
+            android:background="@drawable/background_transparent"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toStartOf="@+id/favorite"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <Button
+            android:id="@+id/favorite"
+            android:layout_width="39dp"
+            android:layout_height="47dp"
+            android:background="@drawable/background_transparent"
+            android:drawableStart="@drawable/ic_favorite_border_black_24dp"
+            android:gravity="center"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <TextView
+            android:id="@+id/textView32"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="8dp"
+            android:layout_marginRight="8dp"
+            android:text="CHEST"
+            android:textColor="@color/backgroundcolor"
+            android:textSize="14sp"
+            android:textStyle="bold"
+            app:fontFamily="sans-serif-condensed-medium"
+            app:layout_constraintEnd_toStartOf="@+id/favorite"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <TextView
+            android:id="@+id/textView14"
+            android:layout_width="81dp"
+            android:layout_height="16dp"
+            android:fontFamily="serif"
+            android:textColor="@color/NEW"
+            android:textSize="12sp"
+            app:layout_constraintEnd_toStartOf="@+id/favorite"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/textView32" />
+
+    </android.support.constraint.ConstraintLayout>
+</ScrollView>
