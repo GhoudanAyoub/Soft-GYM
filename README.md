@@ -1,7 +1,7 @@
 # SoftGym
 ![appicon](https://github.com/GhoudanAyoub/softGym2/blob/master/app/src/main/res/mipmap-xxhdpi/softgym.png)
 
-softGym is a simple Uber app, which uses some APIs to fetch The Location of current users from the [MapBox](https://www.mapbox.com/) and to fetch places,cities,counties,coords etc. The main goal of this app is to be a sample of how to build an high quality Android application that uses the Architecture components, FireBase, Reactivex etc. in java.
+SoftGym an online sports club application that aims to do sport in the home for women, after making a payment this application offers a collection of videos of the sport made by a professional coach. The main goal of this app is to be a sample of how to build an high quality Android application that uses the Architecture components, FireBase, Reactivex etc. in java.
 
 ## Libraries and tools 🛠
 
