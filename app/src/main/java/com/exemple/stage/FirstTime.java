@@ -9,9 +9,6 @@ import android.content.Intent;
 import android.graphics.Color;
 import android.os.Build;
 import android.os.Bundle;
-import android.support.v4.view.PagerAdapter;
-import android.support.v4.view.ViewPager;
-import android.support.v7.app.AppCompatActivity;
 import android.text.Html;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -21,6 +18,10 @@ import android.view.WindowManager;
 import android.widget.Button;
 import android.widget.LinearLayout;
 import android.widget.TextView;
+
+import androidx.appcompat.app.AppCompatActivity;
+import androidx.viewpager.widget.PagerAdapter;
+import androidx.viewpager.widget.ViewPager;
 
 import com.exemple.stage.Profile.Authentification;
 
@@ -80,23 +81,17 @@ public class FirstTime extends AppCompatActivity {
         viewPager.setAdapter(myViewPagerAdapter);
         viewPager.addOnPageChangeListener(viewPagerPageChangeListener);
 
-        SKIP.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
+        SKIP.setOnClickListener(v -> {
+            Intent intent = new Intent(getApplicationContext(), Authentification.class);
+            startActivity(intent);
+        });
+        next.setOnClickListener(v -> {
+            int current = getItem(+1);
+            if (current < layouts.length) {
+                viewPager.setCurrentItem(current);
+            } else {
                 Intent intent = new Intent(getApplicationContext(), Authentification.class);
                 startActivity(intent);
-            }
-        });
-        next.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                int current = getItem(+1);
-                if (current < layouts.length) {
-                    viewPager.setCurrentItem(current);
-                } else {
-                    Intent intent = new Intent(getApplicationContext(), Authentification.class);
-                    startActivity(intent);
-                }
             }
         });
 

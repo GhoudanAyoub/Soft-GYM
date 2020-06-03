@@ -1,7 +1,4 @@
 <resources>
-    <!--
-    *Created By GHOUADN AYOUB
-    *-->
 
     <style name="AppTheme.NoActionBar">
         <item name="windowActionBar">false</item>

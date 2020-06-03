@@ -5,10 +5,6 @@ package com.exemple.stage;
 
 
 import android.os.Bundle;
-import android.support.annotation.NonNull;
-import android.support.v7.app.AppCompatActivity;
-import android.support.v7.widget.GridLayoutManager;
-import android.support.v7.widget.RecyclerView;
 import android.view.View;
 import android.view.WindowManager;
 import android.widget.AdapterView;
@@ -17,6 +13,11 @@ import android.widget.Button;
 import android.widget.ProgressBar;
 import android.widget.Spinner;
 import android.widget.Toast;
+
+import androidx.annotation.NonNull;
+import androidx.appcompat.app.AppCompatActivity;
+import androidx.recyclerview.widget.GridLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
 
 import com.exemple.stage.Adapters.PlanningAdapter;
 import com.exemple.stage.modele.Planning;
@@ -38,7 +39,7 @@ public class PlanningActivity extends AppCompatActivity {
     Button FIND;
     String l, gmail;
     private RecyclerView listView;
-    private com.exemple.stage.Adapters.PlanningAdapter PlanningAdapter;
+    private PlanningAdapter PlanningAdapter;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {

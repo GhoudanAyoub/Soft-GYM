@@ -6,14 +6,15 @@ package com.exemple.stage.Profile;
 
 import android.content.Intent;
 import android.os.Bundle;
-import android.support.v7.app.AppCompatActivity;
 import android.text.TextUtils;
 import android.view.WindowManager;
 import android.widget.Button;
 import android.widget.Toast;
 
+import androidx.appcompat.app.AppCompatActivity;
+
 import com.exemple.stage.R;
-import com.exemple.stage.start;
+import com.exemple.stage.ui.NewStart;
 import com.google.android.gms.ads.AdListener;
 import com.google.android.gms.ads.AdRequest;
 import com.google.android.gms.ads.InterstitialAd;
@@ -78,7 +79,6 @@ public class CreateAccount extends AppCompatActivity {
 
                     @Override
                     public void onComplete() {
-                        Toast.makeText(getApplicationContext(), "Welcome Mr" + mUser.getDisplayName(), Toast.LENGTH_SHORT).show();
                     }
                 });
 
@@ -95,7 +95,7 @@ public class CreateAccount extends AppCompatActivity {
             if (task.isSuccessful()) {
                 Toast.makeText(getApplicationContext(), "createUserWithEmail:success", Toast.LENGTH_SHORT).show();
                 mUser = mAuth.getCurrentUser();
-                startActivity(new Intent(getApplicationContext(), start.class).putExtra("gmail", email));
+                startActivity(new Intent(getApplicationContext(), NewStart.class).putExtra("gmail", email));
             } else {
                 Toast.makeText(getApplicationContext(), "createUserWithEmail:failure", Toast.LENGTH_SHORT).show();
             }
@@ -105,7 +105,7 @@ public class CreateAccount extends AppCompatActivity {
 
     private boolean pass(String password, String password2) {
         boolean valid = true;
-        if (!password.matches(password2)) {
+        if (!password.equals(password2)) {
             Password2.setError("Did Not mutche.");
             valid = false;
         } else {

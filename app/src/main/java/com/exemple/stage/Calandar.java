@@ -6,11 +6,7 @@ package com.exemple.stage;
 
 import android.app.DatePickerDialog;
 import android.os.Bundle;
-import android.support.v7.app.AppCompatActivity;
-import android.support.v7.widget.LinearLayoutManager;
-import android.support.v7.widget.RecyclerView;
 import android.text.TextUtils;
-import android.view.View;
 import android.view.WindowManager;
 import android.view.animation.Animation;
 import android.view.animation.AnimationUtils;
@@ -18,6 +14,10 @@ import android.widget.Button;
 import android.widget.DatePicker;
 import android.widget.LinearLayout;
 import android.widget.Toast;
+
+import androidx.appcompat.app.AppCompatActivity;
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
 
 import com.applandeo.materialcalendarview.CalendarView;
 import com.exemple.stage.Adapters.EventAdapter;
@@ -79,22 +79,19 @@ public class Calandar extends AppCompatActivity {
         LN12.setAnimation(uptodown);
         calandare.setAnimation(downtoup);
 
-        choosedays.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                final Calendar c = Calendar.getInstance();
-                int mYear = c.get(Calendar.YEAR);
-                int mMonth = c.get(Calendar.MONTH);
-                int mDay = c.get(Calendar.DAY_OF_MONTH);
+        choosedays.setOnClickListener(v -> {
+            final Calendar c = Calendar.getInstance();
+            int mYear = c.get(Calendar.YEAR);
+            int mMonth = c.get(Calendar.MONTH);
+            int mDay = c.get(Calendar.DAY_OF_MONTH);
 
-                DatePickerDialog datePickerDialog = new DatePickerDialog(Calandar.this, new DatePickerDialog.OnDateSetListener() {
-                    @Override
-                    public void onDateSet(DatePicker view, int year, int monthOfYear, int dayOfMonth) {
-                        d = dayOfMonth + "-" + (monthOfYear + 1) + "-" + year;
-                    }
-                }, mYear, mMonth, mDay);
-                datePickerDialog.show();
-            }
+            DatePickerDialog datePickerDialog = new DatePickerDialog(Calandar.this, new DatePickerDialog.OnDateSetListener() {
+                @Override
+                public void onDateSet(DatePicker view, int year, int monthOfYear, int dayOfMonth) {
+                    d = dayOfMonth + "-" + (monthOfYear + 1) + "-" + year;
+                }
+            }, mYear, mMonth, mDay);
+            datePickerDialog.show();
         });
 
         databaseReference.orderByChild("gmail").equalTo(gmail).addValueEventListener(new ValueEventListener() {
@@ -119,28 +116,25 @@ public class Calandar extends AppCompatActivity {
             }
         });
 
-        AddEvent.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                if (!validateForm()) return;
-                final String text = testEvent.getText().toString();
-                databaseReference.addListenerForSingleValueEvent(new ValueEventListener() {
-                    @Override
-                    public void onDataChange(DataSnapshot dataSnapshot) {
-                        DatabaseReference newPost = databaseReference.push();
-                        newPost.child("Text").setValue(text);
-                        newPost.child("Date").setValue(d);
-                        newPost.child("gmail").setValue(gmail);
-                        Toast.makeText(getApplicationContext(), "Your Have Added An eventt !!!! ", Toast.LENGTH_LONG).show();
-                        testEvent.setText("");
-                    }
+        AddEvent.setOnClickListener(v -> {
+            if (!validateForm()) return;
+            final String text = testEvent.getText().toString();
+            databaseReference.addListenerForSingleValueEvent(new ValueEventListener() {
+                @Override
+                public void onDataChange(DataSnapshot dataSnapshot) {
+                    DatabaseReference newPost = databaseReference.push();
+                    newPost.child("Text").setValue(text);
+                    newPost.child("Date").setValue(d);
+                    newPost.child("gmail").setValue(gmail);
+                    Toast.makeText(getApplicationContext(), "Your Have Added An eventt !!!! ", Toast.LENGTH_LONG).show();
+                    testEvent.setText("");
+                }
 
-                    @Override
-                    public void onCancelled(DatabaseError databaseError) {
+                @Override
+                public void onCancelled(DatabaseError databaseError) {
 
-                    }
-                });
-            }
+                }
+            });
         });
     }
 

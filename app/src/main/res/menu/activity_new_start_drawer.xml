@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    tools:showIn="navigation_view">
+
+
+    <group android:checkableBehavior="single">
+        <item
+            android:id="@+id/nav_home"
+            android:checked="true"
+            android:icon="@drawable/home"
+            android:title="Home" />
+        <item
+            android:id="@+id/nav_planning"
+            android:icon="@drawable/plan"
+            android:title="Planning" />
+        <item
+            android:id="@+id/nav_practice"
+            android:icon="@drawable/treadmill"
+            android:title="@string/practice" />
+        <item
+            android:id="@+id/nav_calendar"
+            android:icon="@drawable/calendar"
+            android:title="@string/calendar" />
+
+        <item
+            android:id="@+id/nav_pay"
+            android:icon="@drawable/ic_account_balance_black_24dp"
+            android:title="Payment" />
+        <item
+            android:id="@+id/nav_Assisance"
+            android:icon="@drawable/ic_assignment_ind_black_24dp"
+            android:title="@string/assistance" />
+        <item
+            android:id="@+id/nav_profile"
+            android:icon="@drawable/userr"
+            android:title="Profile" />
+
+        <item
+            android:id="@+id/nav_Music"
+            android:icon="@drawable/musical_note"
+            android:title="@string/music" />
+
+
+        <item
+            android:id="@+id/nav_share"
+            android:icon="@drawable/sharee"
+            android:title="@string/share" />
+        <item
+            android:id="@+id/nav_moreInfo"
+            android:icon="@drawable/help"
+            android:title="@string/more_info" />
+        <item
+            android:id="@+id/nav_setting"
+            android:icon="@drawable/ic_settings_black_24dp"
+            android:title="Setting" />
+
+        <item
+            android:id="@+id/nav_deconnecter"
+            android:icon="@drawable/ic_exit_to_app_black_24dp"
+            android:title="Disconnect" />
+    </group>
+</menu>

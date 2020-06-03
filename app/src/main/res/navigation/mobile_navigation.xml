@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/mobile_navigation"
+    app:startDestination="@+id/nav_home">
+
+    <fragment
+        android:id="@+id/nav_home"
+        android:name="com.exemple.stage.ui.home.HomeFragment"
+        android:label="@string/menu_home"
+        tools:layout="@layout/fragment_home">
+        <action
+            android:id="@+id/action_nav_home_to_planningFragment"
+            app:destination="@id/nav_planning" />
+        <action
+            android:id="@+id/action_nav_home_to_calendarFragment"
+            app:destination="@id/nav_calendar" />
+        <action
+            android:id="@+id/action_nav_home_to_practiceFragment"
+            app:destination="@id/nav_practice" />
+        <action
+            android:id="@+id/action_nav_home_to_paymentFrament"
+            app:destination="@id/nav_pay" />
+        <action
+            android:id="@+id/action_nav_home_to_assistenceFragment"
+            app:destination="@id/nav_Assisance" />
+        <action
+            android:id="@+id/action_nav_home_to_shareFragment"
+            app:destination="@id/nav_share" />
+    </fragment>
+    <fragment
+        android:id="@+id/nav_planning"
+        android:name="com.exemple.stage.ui.planning.planningFragment"
+        android:label="planning_fragment"
+        tools:layout="@layout/planning_fragment" />
+    <fragment
+        android:id="@+id/nav_calendar"
+        android:name="com.exemple.stage.ui.calendar.calendarFragment"
+        android:label="calendar_fragment"
+        tools:layout="@layout/calendar_fragment" />
+    <fragment
+        android:id="@+id/nav_practice"
+        android:name="com.exemple.stage.ui.practice.practiceFragment"
+        android:label="practice_fragment"
+        tools:layout="@layout/practice_fragment" />
+    <fragment
+        android:id="@+id/nav_pay"
+        android:name="com.exemple.stage.ui.Payment.paymentFrament"
+        android:label="payment_frament_fragment"
+        tools:layout="@layout/payment_frament_fragment" />
+    <fragment
+        android:id="@+id/nav_Assisance"
+        android:name="com.exemple.stage.ui.Assistence.assistenceFragment"
+        android:label="assistence_fragment"
+        tools:layout="@layout/assistence_fragment" />
+    <fragment
+        android:id="@+id/nav_share"
+        android:name="com.exemple.stage.ui.ShareFragment"
+        android:label="share_fragment"
+        tools:layout="@layout/share_fragment" />
+
+</navigation>

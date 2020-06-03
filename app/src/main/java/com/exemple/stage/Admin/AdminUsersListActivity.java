@@ -1,16 +1,17 @@
 package com.exemple.stage.Admin;
 
 import android.os.Bundle;
-import android.support.annotation.NonNull;
-import android.support.v7.app.AppCompatActivity;
-import android.support.v7.widget.LinearLayoutManager;
-import android.support.v7.widget.RecyclerView;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.Spinner;
 import android.widget.Toast;
+
+import androidx.annotation.NonNull;
+import androidx.appcompat.app.AppCompatActivity;
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
 
 import com.exemple.stage.Adapters.AdminUserAdapter;
 import com.exemple.stage.R;
@@ -80,32 +81,27 @@ public class AdminUsersListActivity extends AppCompatActivity {
             }
         });
 
-        Find.setOnClickListener(new View.OnClickListener() {
+        Find.setOnClickListener(v -> databaseReference.orderByChild("status").equalTo(l).addValueEventListener(new ValueEventListener() {
             @Override
-            public void onClick(View v) {
-                databaseReference.orderByChild("status").equalTo(l).addValueEventListener(new ValueEventListener() {
-                    @Override
-                    public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
-                        if (dataSnapshot.exists()) {
-                            userList.clear();
-                            for (DataSnapshot dataSnapshot1 : dataSnapshot.getChildren()) {
-                                user = dataSnapshot1.getValue(User.class);
-                                userList.add(user);
-                            }
-                            adminUserAdapter = new AdminUserAdapter(getApplicationContext(), userList);
-                            RecyleViewUsers.setAdapter(adminUserAdapter);
-
-                        } else {
-                            Toast.makeText(getApplicationContext(), "No Users For The Moment !!", Toast.LENGTH_LONG).show();
-                        }
+            public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
+                if (dataSnapshot.exists()) {
+                    userList.clear();
+                    for (DataSnapshot dataSnapshot1 : dataSnapshot.getChildren()) {
+                        user = dataSnapshot1.getValue(User.class);
+                        userList.add(user);
                     }
+                    adminUserAdapter = new AdminUserAdapter(getApplicationContext(), userList);
+                    RecyleViewUsers.setAdapter(adminUserAdapter);
 
-                    @Override
-                    public void onCancelled(@NonNull DatabaseError databaseError) {
-                    }
-                });
+                } else {
+                    Toast.makeText(getApplicationContext(), "No Users For The Moment !!", Toast.LENGTH_LONG).show();
+                }
             }
-        });
+
+            @Override
+            public void onCancelled(@NonNull DatabaseError databaseError) {
+            }
+        }));
     }
 
     @Override

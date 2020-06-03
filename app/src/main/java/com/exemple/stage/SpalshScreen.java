@@ -6,8 +6,9 @@ package com.exemple.stage;
 
 import android.content.Intent;
 import android.os.Bundle;
-import android.support.v7.app.AppCompatActivity;
 import android.view.WindowManager;
+
+import androidx.appcompat.app.AppCompatActivity;
 
 import com.exemple.stage.Profile.Authentification;
 
@@ -39,7 +40,7 @@ public class SpalshScreen extends AppCompatActivity {
 */
 
         Observable<Long> timeObservable = Observable
-                .timer(3000, TimeUnit.SECONDS)
+                .timer(3, TimeUnit.SECONDS)
                 .subscribeOn(Schedulers.io())
                 .observeOn(AndroidSchedulers.mainThread());
         timeObservable.subscribe(new Observer<Long>() {

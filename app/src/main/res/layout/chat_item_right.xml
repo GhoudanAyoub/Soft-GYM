@@ -40,6 +40,7 @@
         android:layout_marginTop="8dp"
         android:textColor="@color/white"
         android:textStyle="bold"
+        android:layout_alignLeft="@+id/profile_image"
         android:visibility="visible" />
 
 

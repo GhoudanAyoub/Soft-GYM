@@ -6,16 +6,17 @@ package com.exemple.stage.Profile;
 
 import android.content.Intent;
 import android.os.Bundle;
-import android.support.v7.app.AppCompatActivity;
 import android.text.TextUtils;
 import android.view.View;
 import android.view.WindowManager;
 import android.widget.ProgressBar;
 import android.widget.Toast;
 
+import androidx.appcompat.app.AppCompatActivity;
+
 import com.exemple.stage.Admin.ADMINside1;
 import com.exemple.stage.R;
-import com.exemple.stage.start;
+import com.exemple.stage.ui.NewStart;
 import com.google.firebase.FirebaseApp;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
@@ -107,7 +108,7 @@ public class Authentification extends AppCompatActivity {
                         startActivity(new Intent(getApplicationContext(), ADMINside1.class));
 
                     } else {
-                        startActivity(new Intent(getApplicationContext(), start.class).putExtra("gmail", email));
+                        startActivity(new Intent(getApplicationContext(), NewStart.class).putExtra("gmail", email));
 
                     }
                     Toast.makeText(getApplicationContext(), "Welcome", Toast.LENGTH_SHORT).show();

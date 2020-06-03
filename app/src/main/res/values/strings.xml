@@ -327,5 +327,12 @@ limitations under the License.
     <string name="about">About</string>
     <string name="AB">About</string>
     <string name="RR">Created By GHOUDAN AYOUB ALL RIGHT RESERVER</string>
+    <string name="title_activity_new_start">NewStart</string>
+
+    <string name="menu_home">Home</string>
+    <string name="menu_gallery">Gallery</string>
+    <string name="menu_slideshow">Slideshow</string>
+
+    <string name="home_second">Home Second</string>
 </resources>
 

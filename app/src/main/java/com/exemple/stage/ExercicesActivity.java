@@ -6,17 +6,19 @@ package com.exemple.stage;
 
 import android.content.Intent;
 import android.os.Bundle;
-import android.support.annotation.NonNull;
-import android.support.v7.app.AppCompatActivity;
-import android.support.v7.widget.LinearLayoutManager;
-import android.support.v7.widget.RecyclerView;
 import android.view.View;
 import android.view.WindowManager;
 import android.widget.ProgressBar;
 import android.widget.Toast;
 
+import androidx.annotation.NonNull;
+import androidx.appcompat.app.AppCompatActivity;
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
+
 import com.exemple.stage.Adapters.ExerciceAdapter;
 import com.exemple.stage.modele.Exercice;
+import com.exemple.stage.ui.NewStart;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
@@ -43,7 +45,7 @@ public class ExercicesActivity extends AppCompatActivity {
             setContentView(R.layout.activity_exercices);
         } catch (Exception E) {
             Toast.makeText(getApplicationContext(), "Your Account Have benn suspended by Admin  !!! ", Toast.LENGTH_LONG).show();
-            Intent intent = new Intent(getApplicationContext(), start.class);
+            Intent intent = new Intent(getApplicationContext(), NewStart.class);
             intent.putExtra("gmail", gmail);
             startActivity(intent);
         }

@@ -6,7 +6,7 @@
     <group android:checkableBehavior="single">
         <item
             android:id="@+id/nav_videos"
-            android:icon="@drawable/ic_menu_slideshow"
+            android:icon="@drawable/ic_ondemand_video_black_24dp"
             android:title="Video Management" />
         <item
             android:id="@+id/nav_users"

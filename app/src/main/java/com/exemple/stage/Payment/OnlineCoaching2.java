@@ -7,12 +7,12 @@ package com.exemple.stage.Payment;
 import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
-import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
-import android.view.View;
 import android.view.WindowManager;
 import android.widget.Button;
 import android.widget.Toast;
+
+import androidx.appcompat.app.AppCompatActivity;
 
 import com.exemple.stage.R;
 import com.exemple.stage.modele.User;
@@ -65,44 +65,35 @@ public class OnlineCoaching2 extends AppCompatActivity {
         i1 = findViewById(R.id.imageButton3mois);
         i2 = findViewById(R.id.imageButton6mois);
         i3 = findViewById(R.id.imageButton12mois);
-        i1.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                PayPalPayment payment = new PayPalPayment(new BigDecimal("44.77"), "EUR", "Packet 3 Mois",
-                        PayPalPayment.PAYMENT_INTENT_SALE);
-                Intent intent = new Intent(getApplicationContext(), PaymentActivity.class);
-                key = 90;
-                intent.putExtra(PayPalService.EXTRA_PAYPAL_CONFIGURATION, config);
-                intent.putExtra(PaymentActivity.EXTRA_PAYMENT, payment);
-                startActivityForResult(intent, 0);
-            }
+        i1.setOnClickListener(v -> {
+            PayPalPayment payment = new PayPalPayment(new BigDecimal("44.77"), "EUR", "Packet 3 Mois",
+                    PayPalPayment.PAYMENT_INTENT_SALE);
+            Intent intent13 = new Intent(getApplicationContext(), PaymentActivity.class);
+            key = 90;
+            intent13.putExtra(PayPalService.EXTRA_PAYPAL_CONFIGURATION, config);
+            intent13.putExtra(PaymentActivity.EXTRA_PAYMENT, payment);
+            startActivityForResult(intent13, 0);
         });
-        i2.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                PayPalPayment payment = new PayPalPayment(new BigDecimal("77.40"), "EUR", "Packet 6 Mois",
-                        PayPalPayment.PAYMENT_INTENT_SALE);
-                key = 180;
-                Intent intent = new Intent(getApplicationContext(), PaymentActivity.class);
-                intent.putExtra(PayPalService.EXTRA_PAYPAL_CONFIGURATION, config);
-                intent.putExtra(PaymentActivity.EXTRA_PAYMENT, payment);
-                startActivityForResult(intent, 0);
+        i2.setOnClickListener(v -> {
+            PayPalPayment payment = new PayPalPayment(new BigDecimal("77.40"), "EUR", "Packet 6 Mois",
+                    PayPalPayment.PAYMENT_INTENT_SALE);
+            key = 180;
+            Intent intent12 = new Intent(getApplicationContext(), PaymentActivity.class);
+            intent12.putExtra(PayPalService.EXTRA_PAYPAL_CONFIGURATION, config);
+            intent12.putExtra(PaymentActivity.EXTRA_PAYMENT, payment);
+            startActivityForResult(intent12, 0);
 
-            }
         });
-        i3.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                PayPalPayment payment = new PayPalPayment(new BigDecimal("118.80"), "EUR", "Packet 12 Mois",
-                        PayPalPayment.PAYMENT_INTENT_SALE);
+        i3.setOnClickListener(v -> {
+            PayPalPayment payment = new PayPalPayment(new BigDecimal("118.80"), "EUR", "Packet 12 Mois",
+                    PayPalPayment.PAYMENT_INTENT_SALE);
 
-                Intent intent = new Intent(getApplicationContext(), PaymentActivity.class);
-                key = 355;
-                intent.putExtra(PayPalService.EXTRA_PAYPAL_CONFIGURATION, config);
-                intent.putExtra(PaymentActivity.EXTRA_PAYMENT, payment);
-                startActivityForResult(intent, 0);
+            Intent intent1 = new Intent(getApplicationContext(), PaymentActivity.class);
+            key = 355;
+            intent1.putExtra(PayPalService.EXTRA_PAYPAL_CONFIGURATION, config);
+            intent1.putExtra(PaymentActivity.EXTRA_PAYMENT, payment);
+            startActivityForResult(intent1, 0);
 
-            }
         });
     }
 

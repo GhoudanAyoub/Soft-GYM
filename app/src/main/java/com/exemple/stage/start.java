@@ -2,18 +2,18 @@ package com.exemple.stage;
 
 import android.content.Intent;
 import android.os.Bundle;
-import android.support.annotation.NonNull;
-import android.support.constraint.ConstraintLayout;
-import android.support.design.widget.NavigationView;
-import android.support.v4.view.GravityCompat;
-import android.support.v4.widget.DrawerLayout;
-import android.support.v7.app.ActionBarDrawerToggle;
-import android.support.v7.app.AppCompatActivity;
-import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.WindowManager;
 import android.widget.Toast;
+
+import androidx.annotation.NonNull;
+import androidx.appcompat.app.ActionBarDrawerToggle;
+import androidx.appcompat.app.AppCompatActivity;
+import androidx.appcompat.widget.Toolbar;
+import androidx.constraintlayout.widget.ConstraintLayout;
+import androidx.core.view.GravityCompat;
+import androidx.drawerlayout.widget.DrawerLayout;
 
 import com.exemple.stage.Company.ActivitySetting;
 import com.exemple.stage.Payment.OnlineCoaching;
@@ -21,6 +21,7 @@ import com.exemple.stage.Profile.Authentification;
 import com.exemple.stage.Profile.profile;
 import com.exemple.stage.Youtube.Home;
 import com.exemple.stage.modele.Abonner;
+import com.google.android.material.navigation.NavigationView;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
@@ -66,9 +67,8 @@ public class start extends AppCompatActivity
         final NavigationView navigationView = findViewById(R.id.nav_view);
         navigationView.setNavigationItemSelectedListener(this);
 
-        RxView.clicks(cctt)
+        RxView.clicks(findViewById(R.id.cctt))
                 .throttleFirst(5, TimeUnit.SECONDS)
-                .takeWhile(unit -> false)
                 .observeOn(AndroidSchedulers.mainThread())
                 .subscribe(new Observer<Unit>() {
                     @Override
@@ -120,7 +120,6 @@ public class start extends AppCompatActivity
     public boolean onOptionsItemSelected(MenuItem item) {
         int id = item.getItemId();
 
-        //noinspection SimplifiableIfStatement
         if (id == R.id.action_settings) {
             return true;
         }

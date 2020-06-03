@@ -8,15 +8,16 @@ import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.preference.PreferenceManager;
-import android.support.annotation.NonNull;
-import android.support.constraint.ConstraintLayout;
-import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.TextView;
 import android.widget.Toast;
+
+import androidx.annotation.NonNull;
+import androidx.constraintlayout.widget.ConstraintLayout;
+import androidx.recyclerview.widget.RecyclerView;
 
 import com.exemple.stage.R;
 import com.exemple.stage.Youtube.VideoACtivit;
@@ -70,14 +71,11 @@ public class ExerciceAdapter extends RecyclerView.Adapter<ExerciceAdapter.ImageV
 
             }
         });
-        Holder.buttonv.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent intent = new Intent(mContext, VideoACtivit.class);
-                intent.putExtra("ID", Exercice.getID());
-                intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
-                mContext.startActivity(intent);
-            }
+        Holder.buttonv.setOnClickListener(v -> {
+            Intent intent = new Intent(mContext, VideoACtivit.class);
+            intent.putExtra("ID", Exercice.getID());
+            intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+            mContext.startActivity(intent);
         });
 
 
@@ -98,39 +96,36 @@ public class ExerciceAdapter extends RecyclerView.Adapter<ExerciceAdapter.ImageV
         }
 
 
-        Holder.favorite.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                if (Exercice.getIsAddedAsFav().equalsIgnoreCase("0")) {
-                    Exercice.setIsAddedAsFav("1");
-                    Holder.favorite.setCompoundDrawablesWithIntrinsicBounds(R.drawable.ic_favorite_black_24dp, 0, 0, 0);
-                    SharedPreferences.Editor prefsEditor = mPrefs.edit();
-                    Gson gson = new Gson();
-                    String myJson = gson.toJson(Exercice);
-                    Set<String> jsonList = mPrefs.getStringSet("LikeVideo1", new HashSet<String>());
-                    Set<String> jsonList2 = new HashSet<>();
-                    jsonList2.addAll(jsonList);
-                    jsonList2.add(myJson);
-                    prefsEditor.putStringSet("LikeVideo1", jsonList2);
-                    prefsEditor.apply();
-                    Holder.ct.setBackgroundResource(R.drawable.cerclebackgroundyello);
-                    Toast.makeText(mContext, "Added To favored", Toast.LENGTH_SHORT).show();
-                } else {
-                    Exercice.setIsAddedAsFav("1");
-                    Holder.favorite.setCompoundDrawablesWithIntrinsicBounds(R.drawable.ic_favorite_border_black_24dp, 0, 0, 0);
-                    SharedPreferences.Editor prefsEditor = mPrefs.edit();
-                    Set<String> jsonList = mPrefs.getStringSet("LikeVideo1", new HashSet<String>());
-                    Set<String> jsonList2 = new HashSet<>();
-                    jsonList2.addAll(jsonList);
-                    Gson gson = new Gson();
-                    String myJson = gson.toJson(Exercice);
-                    jsonList2.remove(myJson);
-                    prefsEditor.putStringSet("LikeVideo1", jsonList2);
-                    prefsEditor.apply();
-                    Exercice.setIsAddedAsFav("0");
-                    Holder.ct.setBackgroundResource(R.drawable.cerclebackgroundpink);
-                    Toast.makeText(mContext, "Deleted From Favored", Toast.LENGTH_SHORT).show();
-                }
+        Holder.favorite.setOnClickListener(v -> {
+            if (Exercice.getIsAddedAsFav().equalsIgnoreCase("0")) {
+                Exercice.setIsAddedAsFav("1");
+                Holder.favorite.setCompoundDrawablesWithIntrinsicBounds(R.drawable.ic_favorite_black_24dp, 0, 0, 0);
+                SharedPreferences.Editor prefsEditor = mPrefs.edit();
+                Gson gson1 = new Gson();
+                String myJson1 = gson1.toJson(Exercice);
+                Set<String> jsonList1 = mPrefs.getStringSet("LikeVideo1", new HashSet<String>());
+                Set<String> jsonList21 = new HashSet<>();
+                jsonList21.addAll(jsonList1);
+                jsonList21.add(myJson1);
+                prefsEditor.putStringSet("LikeVideo1", jsonList21);
+                prefsEditor.apply();
+                Holder.ct.setBackgroundResource(R.drawable.cerclebackgroundyello);
+                Toast.makeText(mContext, "Added To favored", Toast.LENGTH_SHORT).show();
+            } else {
+                Exercice.setIsAddedAsFav("1");
+                Holder.favorite.setCompoundDrawablesWithIntrinsicBounds(R.drawable.ic_favorite_border_black_24dp, 0, 0, 0);
+                SharedPreferences.Editor prefsEditor = mPrefs.edit();
+                Set<String> jsonList1 = mPrefs.getStringSet("LikeVideo1", new HashSet<String>());
+                Set<String> jsonList21 = new HashSet<>();
+                jsonList21.addAll(jsonList1);
+                Gson gson1 = new Gson();
+                String myJson1 = gson1.toJson(Exercice);
+                jsonList21.remove(myJson1);
+                prefsEditor.putStringSet("LikeVideo1", jsonList21);
+                prefsEditor.apply();
+                Exercice.setIsAddedAsFav("0");
+                Holder.ct.setBackgroundResource(R.drawable.cerclebackgroundpink);
+                Toast.makeText(mContext, "Deleted From Favored", Toast.LENGTH_SHORT).show();
             }
         });
 
