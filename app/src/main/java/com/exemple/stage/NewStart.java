@@ -12,6 +12,7 @@ import androidx.navigation.Navigation;
 import androidx.navigation.ui.AppBarConfiguration;
 import androidx.navigation.ui.NavigationUI;
 
+import com.exemple.stage.API.FireBaseClient;
 import com.exemple.stage.Company.ActivitySetting;
 import com.exemple.stage.Profile.Authentification;
 import com.exemple.stage.Profile.profile;
@@ -106,7 +107,7 @@ public class NewStart extends AppCompatActivity {
                     startActivity(new Intent(getApplicationContext(), ActivitySetting.class));
                     break;
                 case R.id.nav_deconnecter:
-                    //TODO : Need Logout Commande
+                    FireBaseClient.getInstance().getFirebaseAuth().signOut();
                     startActivity(new Intent(getApplicationContext(), Authentification.class));
                     break;
             }
