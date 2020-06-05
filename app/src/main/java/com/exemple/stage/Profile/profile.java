@@ -1,313 +1,152 @@
 package com.exemple.stage.Profile;
-/**
- * Created By GHOUADN AYOUB
- */
 
-
+import android.annotation.SuppressLint;
 import android.content.Intent;
 import android.os.Bundle;
-import android.view.Menu;
-import android.view.MenuItem;
-import android.view.View;
+import android.util.Log;
 import android.view.WindowManager;
-import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
-import android.widget.Toast;
 
 import androidx.annotation.NonNull;
-import androidx.appcompat.app.ActionBarDrawerToggle;
 import androidx.appcompat.app.AppCompatActivity;
-import androidx.appcompat.widget.Toolbar;
-import androidx.core.view.GravityCompat;
-import androidx.drawerlayout.widget.DrawerLayout;
-import androidx.fragment.app.Fragment;
-import androidx.fragment.app.FragmentManager;
-import androidx.fragment.app.FragmentTransaction;
+import androidx.navigation.NavController;
+import androidx.navigation.Navigation;
+import androidx.navigation.ui.AppBarConfiguration;
+import androidx.navigation.ui.NavigationUI;
 
 import com.bumptech.glide.Glide;
+import com.exemple.stage.API.FireBaseClient;
+import com.exemple.stage.Commun.Commun;
 import com.exemple.stage.Company.ActivitySetting;
 import com.exemple.stage.Company.ContactUs;
-import com.exemple.stage.Fragments.FragmentFavories;
-import com.exemple.stage.Fragments.FragmentMessage;
-import com.exemple.stage.Payment.OnlineCoaching;
+import com.exemple.stage.ListOfSongsActivity;
+import com.exemple.stage.NewStart;
 import com.exemple.stage.R;
 import com.exemple.stage.Youtube.Home;
 import com.exemple.stage.modele.Abonner;
 import com.exemple.stage.modele.User;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
-import com.google.android.material.navigation.NavigationView;
-import com.google.firebase.auth.FirebaseAuth;
-import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
-import com.google.firebase.database.DatabaseReference;
-import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
 
-import java.util.ArrayList;
-import java.util.List;
+import org.jetbrains.annotations.NotNull;
 
-public class profile extends AppCompatActivity implements NavigationView.OnNavigationItemSelectedListener {
+import java.util.Objects;
+
+public class profile extends AppCompatActivity {
 
 
-    public static FragmentManager fragmentManager;
     TextView ClientName, Abonnerdate, Status;
     ImageView photo;
-    List<com.exemple.stage.modele.Abonner> abonnerList;
-    User CLassUser;
-    Abonner Abonner;
-    String gmaill;
-    Button button5;
-    Fragment fragment;
-    private DatabaseReference userdata, abonnerdata;
-    private FirebaseUser currentuser;
-    private FirebaseAuth mAuth;
-    private List<User> Userlist;
-    private BottomNavigationView.OnNavigationItemSelectedListener mOnNavigationItemSelectedListener
-            = new BottomNavigationView.OnNavigationItemSelectedListener() {
 
-        @Override
-        public boolean onNavigationItemSelected(@NonNull MenuItem item) {
-            switch (item.getItemId()) {
-                case R.id.navigation_chat:
-                    fragment = new FragmentMessage();
-                    loadFragment(fragment);
-                    return true;
-                case R.id.navigation_fav:
-
-                    abonnerdata = FirebaseDatabase.getInstance().getReference("Abonner");
-                    tsr(abonnerdata);
-                    return true;
-
-            }
-            return false;
-        }
-    };
-
+    @SuppressLint("SetTextI18n")
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_profile);
-        Toolbar toolbar = findViewById(R.id.toolbar);
-        setSupportActionBar(toolbar);
-
         getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN, WindowManager.LayoutParams.FLAG_FULLSCREEN);
-        DrawerLayout drawer = findViewById(R.id.drawer_layout);
-        ActionBarDrawerToggle toggle = new ActionBarDrawerToggle(this, drawer, toolbar, R.string.navigation_drawer_open, R.string.navigation_drawer_close);
-        drawer.addDrawerListener(toggle);
-        toggle.syncState();
-
+        SetView();
         BottomNavigationView navigation = findViewById(R.id.bottomNavigationView);
-        navigation.setOnNavigationItemSelectedListener(mOnNavigationItemSelectedListener);
-        navigation.setSelectedItemId(R.id.navigation_fav);
+        AppBarConfiguration appBarConfiguration = new AppBarConfiguration.Builder(
+                R.id.navigation_chat, R.id.navigation_fav)
+                .build();
+        NavController navController = Navigation.findNavController(this, R.id.nav_host_fragment);
+        NavigationUI.setupWithNavController(navigation, navController);
 
-        final NavigationView navigationView = findViewById(R.id.nav_view);
-        navigationView.setNavigationItemSelectedListener(this);
-
-
-        gmaill = getIntent().getStringExtra("gmail");
-        /**Profile side  getting data**/
-
-        ClientName = findViewById(R.id.ClientName);
-        photo = findViewById(R.id.photo);
-        button5 = findViewById(R.id.button5);
-        Abonnerdate = findViewById(R.id.dateAbonner);
-        Status = findViewById(R.id.Status);
-
-        currentuser = FirebaseAuth.getInstance().getCurrentUser();
-        userdata = FirebaseDatabase.getInstance().getReference("Users");
-        userdata.keepSynced(true);
-        Userlist = new ArrayList<>();
-        abonnerList = new ArrayList<>();
-
-        abonnerdata = FirebaseDatabase.getInstance().getReference("Abonner");
-        abonnerdata.keepSynced(true);
-
-        button5.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent intent = new Intent(getApplicationContext(), EditProfile.class);
-                intent.putExtra("gmail", gmaill);
-                startActivity(intent);
-            }
+        findViewById(R.id.floatingActionButton).setOnClickListener(l1 -> {
         });
-
-        fragmentManager = getSupportFragmentManager();
-
-        if (findViewById(R.id.fragmentProfile) != null) {
-            if (savedInstanceState != null) {
-                return;
-            }
-
-
-            abonnerdata.orderByChild("gmail").equalTo(gmaill).addListenerForSingleValueEvent(new ValueEventListener() {
-                @Override
-                public void onDataChange(DataSnapshot dataSnapshot) {
-                    if (dataSnapshot.exists()) {
-                        for (DataSnapshot dataSnapshot1 : dataSnapshot.getChildren()) {
-                            Abonner = dataSnapshot1.getValue(Abonner.class);
-                            abonnerList.add(Abonner);
-                        }
-                        if (Abonner.status.matches("approved")) {
-                            FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
-                            FragmentFavories fragmentFavories = new FragmentFavories();
-                            fragmentTransaction.add(R.id.fragmentProfile, fragmentFavories, null);
-                            fragmentTransaction.commit();
-                        } else {
-                            Toast.makeText(getApplicationContext(), "You Have To Subscribe first !!! ", Toast.LENGTH_LONG).show();
-                            FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
-                            FragmentMessage fragmentMessage = new FragmentMessage();
-                            fragmentTransaction.add(R.id.fragmentProfile, fragmentMessage, null);
-                            fragmentTransaction.commit();
-                        }
-
-                    } else {
-                        Abonnerdate.setText("You Are Not Subscribed");
-                    }
-                }
-
-                @Override
-                public void onCancelled(DatabaseError databaseError) {
-                }
-            });
-        }
+        findViewById(R.id.floatingActionButton2).setOnClickListener(l2 -> startActivity(new Intent(getApplicationContext(), NewStart.class)));
+        findViewById(R.id.floatingActionButton3).setOnClickListener(l3 -> {
+            FireBaseClient.getInstance().getFirebaseAuth().signOut();
+            startActivity(new Intent(getApplicationContext(), Authentification.class));
+        });
+        findViewById(R.id.floatingActionButton4).setOnClickListener(l4 -> startActivity(new Intent(getApplicationContext(), ContactUs.class)));
+        findViewById(R.id.floatingActionButton5).setOnClickListener(l5 -> startActivity(new Intent(getApplicationContext(), Home.class)));
+        findViewById(R.id.floatingActionButton6).setOnClickListener(l6 -> startActivity(new Intent(getApplicationContext(), ListOfSongsActivity.class)));
+        findViewById(R.id.floatingActionButton7).setOnClickListener(l7 -> startActivity(new Intent(getApplicationContext(), ActivitySetting.class)));
+        findViewById(R.id.button5).setOnClickListener(v -> startActivity(new Intent(getApplicationContext(), EditProfile.class)));
     }
 
-    public void tsr(DatabaseReference abonnerdata) {
-
-        abonnerdata.orderByChild("gmail").equalTo(gmaill).addListenerForSingleValueEvent(new ValueEventListener() {
-            @Override
-            public void onDataChange(DataSnapshot dataSnapshot) {
-                if (dataSnapshot.exists()) {
-                    for (DataSnapshot dataSnapshot1 : dataSnapshot.getChildren()) {
-                        Abonner = dataSnapshot1.getValue(Abonner.class);
-                        abonnerList.add(Abonner);
-                    }
-                    if (Abonner.status.matches("approved")) {
-                        fragment = new FragmentFavories();
-                        loadFragment(fragment);
-                    } else {
-                        Toast.makeText(getApplicationContext(), "You Have To Subscribe first !!! ", Toast.LENGTH_LONG).show();
-                    }
-
-                } else {
-                    Abonnerdate.setText("You Are Not Subscribed");
-                }
-            }
-
-            @Override
-            public void onCancelled(DatabaseError databaseError) {
-            }
-        });
-
+    private void SetView() {
+        ClientName = findViewById(R.id.ClientName);
+        photo = findViewById(R.id.photo);
+        Abonnerdate = findViewById(R.id.dateAbonner);
+        Status = findViewById(R.id.Status);
     }
 
     @Override
     public void onStart() {
+        super.onStart();
+        GetUserData();
+    }
 
-        userdata.orderByChild("gmail").equalTo(gmaill).addValueEventListener(new ValueEventListener() {
-            @Override
-            public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
-                if (dataSnapshot.exists()) {
-                    for (DataSnapshot dataSnapshot1 : dataSnapshot.getChildren()) {
-                        CLassUser = dataSnapshot1.getValue(User.class);
-                        Userlist.add(CLassUser);
+    @SuppressLint("SetTextI18n")
+    private void GetUserData() {
+        FireBaseClient.getInstance().getFirebaseDatabase()
+                .getReference("Users")
+                .orderByChild("gmail")
+                .equalTo(Commun.Email_User)
+                .addValueEventListener(new ValueEventListener() {
+                    @Override
+                    public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
+                        if (dataSnapshot.exists()) {
+                            for (DataSnapshot dataSnapshot1 : dataSnapshot.getChildren()) {
+                                try {
+                                    ClientName.setText(Objects.requireNonNull(dataSnapshot1.getValue(User.class)).name);
+                                    Glide.with(getApplicationContext())
+                                            .load(Objects.requireNonNull(dataSnapshot1.getValue(User.class)).image)
+                                            .centerCrop()
+                                            .placeholder(R.drawable.no_image_available)
+                                            .into(photo);
+                                } catch (Exception e) {
+                                    Log.e("failed", "onDataChangeProfile: " + e.getMessage());
+                                }
+                            }
+                            GetSubscribedData();
+                        } else {
+                            ClientName.setText("WELCOME PLEASE EDIT YOUR PROFILE");
+                        }
                     }
-                    ClientName.setText(CLassUser.name);
-                    try {
-                        Glide.with(getApplicationContext()).load(CLassUser.image).centerCrop().placeholder(R.drawable.no_image_available).into(photo);
-                    } catch (Exception e) {
+
+                    @Override
+                    public void onCancelled(@NonNull DatabaseError databaseError) {
                     }
-                    //$$$$$$$$$$$$$$$$$$$$$getting subscriber data
-                    abonnerdata.orderByChild("gmail").equalTo(gmaill).addListenerForSingleValueEvent(new ValueEventListener() {
-                        @Override
-                        public void onDataChange(DataSnapshot dataSnapshot) {
+                });
+    }
+
+    @SuppressLint("SetTextI18n")
+    private void GetSubscribedData() {
+        FireBaseClient.getInstance().getFirebaseDatabase()
+                .getReference("Abonner")
+                .orderByChild("gmail")
+                .equalTo(Commun.Email_User)
+                .addListenerForSingleValueEvent(new ValueEventListener() {
+                    @Override
+                    public void onDataChange(@NotNull DataSnapshot dataSnapshot) {
+                        try {
                             if (dataSnapshot.exists()) {
                                 for (DataSnapshot dataSnapshot1 : dataSnapshot.getChildren()) {
-                                    Abonner = dataSnapshot1.getValue(Abonner.class);
-                                    abonnerList.add(Abonner);
+                                    Abonnerdate.setText(Integer.toString(Objects.requireNonNull(dataSnapshot1.getValue(Abonner.class)).days));
+                                    Status.setText(Objects.requireNonNull(dataSnapshot1.getValue(Abonner.class)).status);
                                 }
-                                int r = Abonner.days;
-                                Abonnerdate.setText(Integer.toString(r));
-                                Status.setText(Abonner.status);
                             } else {
                                 Abonnerdate.setText("You Are Not Subscribed");
                             }
+                        } catch (Throwable e) {
+                            Log.e("failed", "onDataChangeProfile : " + e.getMessage());
                         }
+                    }
 
-                        @Override
-                        public void onCancelled(DatabaseError databaseError) {
-                        }
-                    });
-                    //$$$$$$$$$$$$$$$$$$$$ End of getting subscribers data
-                } else {
-                    ClientName.setText("WELCOME PLEASE EDIT YOUR PROFILE");
-                }
-            }
-
-            @Override
-            public void onCancelled(@NonNull DatabaseError databaseError) {
-            }
-        });
-        super.onStart();
+                    @Override
+                    public void onCancelled(@NotNull DatabaseError databaseError) {
+                    }
+                });
     }
 
     @Override
     public void onBackPressed() {
-        DrawerLayout drawer = findViewById(R.id.drawer_layout);
-        if (drawer.isDrawerOpen(GravityCompat.START)) {
-            drawer.closeDrawer(GravityCompat.START);
-        } else {
-            super.onBackPressed();
-        }
-    }
-
-    @Override
-    public boolean onCreateOptionsMenu(Menu menu) {
-        getMenuInflater().inflate(R.menu.profile, menu);
-        return true;
-    }
-
-    @Override
-    public boolean onOptionsItemSelected(MenuItem item) {
-        int id = item.getItemId();
-        if (id == R.id.action_settings) {
-            Intent intent = new Intent(getApplicationContext(), ActivitySetting.class);
-            startActivity(intent);
-            return true;
-        }
-        return super.onOptionsItemSelected(item);
-    }
-
-    @SuppressWarnings("StatementWithEmptyBody")
-    @Override
-    public boolean onNavigationItemSelected(MenuItem item) {
-        int id = item.getItemId();
-        if (id == R.id.nav_home) {
-            Intent intent = new Intent(getApplicationContext(), Home.class);
-            startActivity(intent);
-        } else if (id == R.id.nav_online) {
-            Intent intent = new Intent(getApplicationContext(), OnlineCoaching.class);
-            startActivity(intent);
-        } else if (id == R.id.nav_send) {
-            Intent intent = new Intent(getApplicationContext(), ContactUs.class);
-            startActivity(intent);
-        } else if (id == R.id.nav_disconnect) {
-            Intent intent = new Intent(getApplicationContext(), Authentification.class);
-            startActivity(intent);
-        }
-        DrawerLayout drawer = findViewById(R.id.drawer_layout);
-        drawer.closeDrawer(GravityCompat.START);
-        return true;
-    }
-
-
-    private void loadFragment(Fragment fragment) {
-        FragmentManager fragmentManager = getSupportFragmentManager();
-        FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
-        fragmentTransaction.replace(R.id.fragmentProfile, fragment);
-        fragmentTransaction.commit();
     }
 
     @Override

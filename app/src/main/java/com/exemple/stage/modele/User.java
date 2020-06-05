@@ -29,6 +29,22 @@ public class User {
         this.password = password;
     }
 
+    public User(String city, String phone, String address, String name,
+                String country, String zip, String image, String gmail,
+                int days, String IDUsers, String status) {
+        City = city;
+        Phone = phone;
+        Address = address;
+        this.name = name;
+        Country = country;
+        Zip = zip;
+        this.image = image;
+        this.gmail = gmail;
+        Days = days;
+        this.IDUsers = IDUsers;
+        this.status = status;
+    }
+
     public User(String name, String city, String phone, String address, String country, String Zip, String image, String gmail) {
         City = city;
         Phone = phone;

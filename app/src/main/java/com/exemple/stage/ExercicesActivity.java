@@ -18,7 +18,6 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import com.exemple.stage.Adapters.ExerciceAdapter;
 import com.exemple.stage.modele.Exercice;
-import com.exemple.stage.ui.NewStart;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;

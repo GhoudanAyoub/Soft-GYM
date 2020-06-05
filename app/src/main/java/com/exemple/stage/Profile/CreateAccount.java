@@ -1,28 +1,24 @@
 package com.exemple.stage.Profile;
-/**
- * Created By GHOUADN AYOUB
- */
-
 
 import android.content.Intent;
 import android.os.Bundle;
 import android.text.TextUtils;
+import android.util.Log;
 import android.view.WindowManager;
-import android.widget.Button;
 import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import com.exemple.stage.API.FireBaseClient;
+import com.exemple.stage.NewStart;
 import com.exemple.stage.R;
-import com.exemple.stage.ui.NewStart;
 import com.google.android.gms.ads.AdListener;
 import com.google.android.gms.ads.AdRequest;
 import com.google.android.gms.ads.InterstitialAd;
-import com.google.firebase.auth.FirebaseAuth;
-import com.google.firebase.auth.FirebaseUser;
+import com.google.android.material.textfield.TextInputLayout;
 import com.jakewharton.rxbinding3.view.RxView;
-import com.rengwuxian.materialedittext.MaterialEditText;
 
+import java.util.Objects;
 import java.util.concurrent.TimeUnit;
 
 import io.reactivex.Observer;
@@ -34,11 +30,8 @@ import kotlin.Unit;
 public class CreateAccount extends AppCompatActivity {
 
 
-    MaterialEditText Email, Password, Password2;
-    Button Create;
-    CompositeDisposable compositeDisposable = new CompositeDisposable();
-    private FirebaseAuth mAuth;
-    private FirebaseUser mUser;
+    private TextInputLayout Email, Password, Password2;
+    private CompositeDisposable compositeDisposable = new CompositeDisposable();
     private InterstitialAd mInterstitialAd;
 
     @Override
@@ -49,17 +42,12 @@ public class CreateAccount extends AppCompatActivity {
         this.getWindow().setSoftInputMode(WindowManager.LayoutParams.SOFT_INPUT_STATE_ALWAYS_HIDDEN);
 
 
-        mAuth = FirebaseAuth.getInstance();
-        mUser = FirebaseAuth.getInstance().getCurrentUser();
-
-        Create = findViewById(R.id.Create);
         Email = findViewById(R.id.EmailSignin);
         Password = findViewById(R.id.PassworSignin);
         Password2 = findViewById(R.id.Password2Signin);
 
-        RxView.clicks(Create)
+        RxView.clicks(findViewById(R.id.Create))
                 .throttleFirst(5, TimeUnit.SECONDS)
-                .takeWhile(unit -> false)
                 .observeOn(AndroidSchedulers.mainThread())
                 .subscribe(new Observer<Unit>() {
                     @Override
@@ -69,12 +57,13 @@ public class CreateAccount extends AppCompatActivity {
 
                     @Override
                     public void onNext(Unit unit) {
-                        createAccount(Email.getText().toString(), Password.getText().toString(), Password2.getText().toString());
+                        createAccount(Objects.requireNonNull(Email.getEditText()).getText().toString(), Objects.requireNonNull(Password.getEditText()).getText().toString(),
+                                Objects.requireNonNull(Password2.getEditText()).getText().toString());
                     }
 
                     @Override
                     public void onError(Throwable e) {
-                        Toast.makeText(getApplicationContext(), "Check Your Internet", Toast.LENGTH_SHORT).show();
+                        Log.e("Failed", e.getMessage());
                     }
 
                     @Override
@@ -91,15 +80,20 @@ public class CreateAccount extends AppCompatActivity {
         //empty  champ
         if (!validateForm()) return;
         if (!pass(password, password2)) return;
-        mAuth.createUserWithEmailAndPassword(email, password).addOnCompleteListener(task -> {
-            if (task.isSuccessful()) {
-                Toast.makeText(getApplicationContext(), "createUserWithEmail:success", Toast.LENGTH_SHORT).show();
-                mUser = mAuth.getCurrentUser();
-                startActivity(new Intent(getApplicationContext(), NewStart.class).putExtra("gmail", email));
-            } else {
-                Toast.makeText(getApplicationContext(), "createUserWithEmail:failure", Toast.LENGTH_SHORT).show();
-            }
-        });
+        try {
+            FireBaseClient.getInstance().getFirebaseAuth()
+                    .createUserWithEmailAndPassword(email, password)
+                    .addOnCompleteListener(task -> {
+                        if (task.isSuccessful()) {
+                            Toast.makeText(getApplicationContext(), "createUserWithEmail:success", Toast.LENGTH_SHORT).show();
+                            startActivity(new Intent(getApplicationContext(), NewStart.class));
+                        } else {
+                            Toast.makeText(getApplicationContext(), "createUserWithEmail:failure", Toast.LENGTH_SHORT).show();
+                        }
+                    });
+        } catch (Exception e) {
+            Toast.makeText(getApplicationContext(), "Check Your Internet Connection", Toast.LENGTH_SHORT).show();
+        }
 
     }
 
@@ -117,7 +111,7 @@ public class CreateAccount extends AppCompatActivity {
     private boolean validateForm() {
         boolean valid = true;
 
-        String email1 = Email.getText().toString();
+        String email1 = Objects.requireNonNull(Email.getEditText()).getText().toString();
         if (TextUtils.isEmpty(email1)) {
             Email.setError("Required.");
             valid = false;
@@ -125,7 +119,7 @@ public class CreateAccount extends AppCompatActivity {
             Email.setError(null);
         }
 
-        String password1 = Password.getText().toString();
+        String password1 = Objects.requireNonNull(Password.getEditText()).getText().toString();
         if (TextUtils.isEmpty(password1)) {
             Password.setError("Required.");
             valid = false;
@@ -133,7 +127,7 @@ public class CreateAccount extends AppCompatActivity {
             Password.setError(null);
         }
 
-        String password2 = Password2.getText().toString();
+        String password2 = Objects.requireNonNull(Password2.getEditText()).getText().toString();
         if (TextUtils.isEmpty(password2)) {
             Password2.setError("Required.");
             valid = false;
@@ -161,7 +155,7 @@ public class CreateAccount extends AppCompatActivity {
 
             @Override
             public void onAdFailedToLoad(int errorCode) {
-                Toast.makeText(getApplicationContext(), "Faild", Toast.LENGTH_SHORT);
+                Log.e("Failed", "Failed Adds");
             }
 
             @Override
@@ -175,7 +169,7 @@ public class CreateAccount extends AppCompatActivity {
         if (mInterstitialAd != null && mInterstitialAd.isLoaded()) {
             mInterstitialAd.show();
         } else {
-            Toast.makeText(this, "Ad did not load", Toast.LENGTH_SHORT);
+            Log.e("Failed", "Ad did not load");
         }
     }
 

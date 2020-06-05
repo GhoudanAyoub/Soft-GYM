@@ -1,28 +1,24 @@
 package com.exemple.stage.Profile;
-/**
- * Created By GHOUADN AYOUB
- */
 
-
+import android.app.ProgressDialog;
 import android.content.Intent;
 import android.os.Bundle;
 import android.text.TextUtils;
-import android.view.View;
 import android.view.WindowManager;
-import android.widget.ProgressBar;
 import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import com.exemple.stage.API.FireBaseClient;
 import com.exemple.stage.Admin.ADMINside1;
+import com.exemple.stage.Commun.Commun;
+import com.exemple.stage.NewStart;
 import com.exemple.stage.R;
-import com.exemple.stage.ui.NewStart;
+import com.google.android.material.textfield.TextInputLayout;
 import com.google.firebase.FirebaseApp;
-import com.google.firebase.auth.FirebaseAuth;
-import com.google.firebase.auth.FirebaseUser;
 import com.jakewharton.rxbinding3.view.RxView;
-import com.rengwuxian.materialedittext.MaterialEditText;
 
+import java.util.Objects;
 import java.util.concurrent.TimeUnit;
 
 import io.reactivex.Observer;
@@ -33,12 +29,9 @@ import kotlin.Unit;
 
 public class Authentification extends AppCompatActivity {
 
-    MaterialEditText email, password;
-    boolean shouldAllowBack = false;
-    ProgressBar progressBar;
-    CompositeDisposable compositeDisposable = new CompositeDisposable();
-    private FirebaseAuth mAuth;
-    private FirebaseUser mUser;
+    private TextInputLayout email, password;
+    private ProgressDialog progressDialog;
+    private CompositeDisposable compositeDisposable = new CompositeDisposable();
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -49,13 +42,10 @@ public class Authentification extends AppCompatActivity {
 
         email = findViewById(R.id.email);
         password = findViewById(R.id.password);
-        progressBar = findViewById(R.id.progressBar3);
+        progressDialog = new ProgressDialog(this);
+        progressDialog.setMessage("Log In ....");
 
         FirebaseApp.initializeApp(getApplicationContext());
-        mAuth = FirebaseAuth.getInstance();
-        mUser = FirebaseAuth.getInstance().getCurrentUser();
-
-        progressBar.setVisibility(View.GONE);
 
         findViewById(R.id.forgot_password).setOnClickListener(view -> startActivity(new Intent(getApplicationContext(), ResetPasswordActivity.class)));
         findViewById(R.id.Signin).setOnClickListener(v -> startActivity(new Intent(getApplicationContext(), CreateAccount.class)));
@@ -72,8 +62,8 @@ public class Authentification extends AppCompatActivity {
 
                     @Override
                     public void onNext(Unit unit) {
-                        progressBar.setVisibility(View.VISIBLE);
-                        LoginUser(email.getText().toString(), password.getText().toString());
+                        LoginUser(Objects.requireNonNull(email.getEditText()).getText().toString(), Objects.requireNonNull(password.getEditText()).getText().toString());
+                        progressDialog.show();
                     }
 
                     @Override
@@ -92,31 +82,29 @@ public class Authentification extends AppCompatActivity {
     @Override
     public void onStart() {
         super.onStart();
-        mUser = mAuth.getCurrentUser();
+        if (Commun.Current_User != null) {
+            startActivity(new Intent(getApplicationContext(), NewStart.class));
+        }
     }
 
     //LogIn Interface
     private void LoginUser(final String email, final String password) {
-
-        if (!validateForm()) {
-            return;
-        }
+        if (!validateForm()) return;
         try {
-            mAuth.signInWithEmailAndPassword(email, password).addOnCompleteListener(task -> {
-                if (task.isSuccessful()) {
-                    if (email.equalsIgnoreCase("contact@mc2020.net") || password.equalsIgnoreCase("contact@mc2020.net")) {
-                        startActivity(new Intent(getApplicationContext(), ADMINside1.class));
-
+            if (email.equalsIgnoreCase("contact@mc2020.net") || password.equalsIgnoreCase("contact@mc2020.net")) {
+                startActivity(new Intent(getApplicationContext(), ADMINside1.class));
+            } else {
+                FireBaseClient.getInstance().getFirebaseAuth()
+                        .signInWithEmailAndPassword(email, password).addOnCompleteListener(task -> {
+                    if (task.isSuccessful()) {
+                        progressDialog.dismiss();
+                        startActivity(new Intent(getApplicationContext(), NewStart.class));
+                        Toast.makeText(getApplicationContext(), "Welcome", Toast.LENGTH_SHORT).show();
                     } else {
-                        startActivity(new Intent(getApplicationContext(), NewStart.class).putExtra("gmail", email));
-
+                        Toast.makeText(getApplicationContext(), "Invalid Email Or Password", Toast.LENGTH_LONG).show();
                     }
-                    Toast.makeText(getApplicationContext(), "Welcome", Toast.LENGTH_SHORT).show();
-                    progressBar.setVisibility(View.GONE);
-                } else {
-                    Toast.makeText(getApplicationContext(), "Invalid Email Or Password", Toast.LENGTH_LONG).show();
-                }
-            });
+                });
+            }
         } catch (Exception ex) {
             Toast.makeText(getApplicationContext(), " Check Your Connection Network", Toast.LENGTH_LONG).show();
         }
@@ -125,7 +113,7 @@ public class Authentification extends AppCompatActivity {
     private boolean validateForm() {
         boolean valid = true;
 
-        String email1 = email.getText().toString();
+        String email1 = Objects.requireNonNull(Objects.requireNonNull(email.getEditText()).getText()).toString();
         if (TextUtils.isEmpty(email1)) {
             email.setError("Required.");
             valid = false;
@@ -133,7 +121,7 @@ public class Authentification extends AppCompatActivity {
             email.setError(null);
         }
 
-        String password1 = password.getText().toString();
+        String password1 = Objects.requireNonNull(Objects.requireNonNull(password.getEditText()).getText()).toString();
         if (TextUtils.isEmpty(password1)) {
             password.setError("Required.");
             valid = false;
@@ -147,11 +135,6 @@ public class Authentification extends AppCompatActivity {
 
     @Override
     public void onBackPressed() {
-        if (!shouldAllowBack) {
-            // doSomething();
-        } else {
-            Toast.makeText(getApplicationContext(), "You Need To LogIn", Toast.LENGTH_LONG).show();
-        }
     }
 
     @Override

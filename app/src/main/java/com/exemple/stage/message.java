@@ -7,7 +7,6 @@ package com.exemple.stage;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
-import android.view.View;
 import android.view.WindowManager;
 import android.widget.EditText;
 import android.widget.ImageButton;
@@ -78,19 +77,16 @@ public class message extends AppCompatActivity {
         userid = getIntent().getStringExtra("gmail");
 
         fuser = FirebaseAuth.getInstance().getCurrentUser();
-        btn_send.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                notify = true;
-                String msg = text_send.getText().toString();
-                if (!msg.equals("")) {
-                    sendMessage(fuser.getUid(), userid, msg);
-                } else {
-                    Toast.makeText(getApplicationContext(), "You can't send empty message", Toast.LENGTH_SHORT).show();
-                }
-                text_send.setText("");
-                readMesagges();
+        btn_send.setOnClickListener(view -> {
+            notify = true;
+            String msg = text_send.getText().toString();
+            if (!msg.equals("")) {
+                sendMessage(fuser.getUid(), userid, msg);
+            } else {
+                Toast.makeText(getApplicationContext(), "You can't send empty message", Toast.LENGTH_SHORT).show();
             }
+            text_send.setText("");
+            readMesagges();
         });
 
         //seenMessage(userid);

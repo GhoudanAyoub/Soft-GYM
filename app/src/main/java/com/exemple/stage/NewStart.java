@@ -1,4 +1,4 @@
-package com.exemple.stage.ui;
+package com.exemple.stage;
 
 import android.content.Intent;
 import android.os.Bundle;
@@ -13,10 +13,8 @@ import androidx.navigation.ui.AppBarConfiguration;
 import androidx.navigation.ui.NavigationUI;
 
 import com.exemple.stage.Company.ActivitySetting;
-import com.exemple.stage.ListOfSongsActivity;
 import com.exemple.stage.Profile.Authentification;
 import com.exemple.stage.Profile.profile;
-import com.exemple.stage.R;
 import com.exemple.stage.Youtube.Home;
 import com.google.android.material.navigation.NavigationView;
 import com.jakewharton.rxbinding3.view.RxView;
@@ -42,7 +40,7 @@ public class NewStart extends AppCompatActivity {
         NavigationView navigationView = findViewById(R.id.nav_view);
         mAppBarConfiguration = new AppBarConfiguration.Builder(
                 R.id.nav_home, R.id.nav_planning, R.id.nav_practice, R.id.nav_calendar
-                , R.id.nav_pay, R.id.nav_Assisance)
+                , R.id.nav_pay)
                 .setDrawerLayout(drawer)
                 .build();
         NavController navController = Navigation.findNavController(this, R.id.nav_host_fragment);
@@ -90,7 +88,7 @@ public class NewStart extends AppCompatActivity {
                     navController.navigate(R.id.nav_pay);
                     break;
                 case R.id.nav_Assisance:
-                    navController.navigate(R.id.nav_Assisance);
+                    startActivity(new Intent(getApplicationContext(), message.class));
                     break;
                 case R.id.nav_profile:
                     startActivity(new Intent(getApplicationContext(), profile.class));
