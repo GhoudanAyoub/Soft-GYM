@@ -197,12 +197,6 @@ public class Home extends YouTubeBaseActivity implements NavigationView.OnNaviga
         if (id == R.id.nav_home) {
             Intent intent = new Intent(getApplicationContext(), Home.class);
             startActivity(intent);
-        } else if (id == R.id.nav_online) {
-            Intent intent = new Intent(getApplicationContext(), OnlineCoaching.class);
-            startActivity(intent);
-        } else if (id == R.id.nav_send) {
-            Intent intent = new Intent(getApplicationContext(), ContactUs.class);
-            startActivity(intent);
         } else if (id == R.id.nav_profile) {
             Intent intent = new Intent(getApplicationContext(), Authentification.class);
             startActivity(intent);
