@@ -36,7 +36,7 @@ public class ResetPasswordActivity extends AppCompatActivity {
                             .addOnCompleteListener(task -> {
                                 if (task.isSuccessful()) {
                                     Toast.makeText(ResetPasswordActivity.this, "Please check you Email", Toast.LENGTH_SHORT).show();
-                                    startActivity(new Intent(getApplicationContext(), Authentification.class));
+                                    startActivity(new Intent(getApplicationContext(), Authentication.class));
                                 }
                             });
                 }

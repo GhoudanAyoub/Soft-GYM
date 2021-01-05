@@ -1,6 +1,7 @@
 package com.exemple.stage.API;
 
 import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.storage.FirebaseStorage;
@@ -12,6 +13,7 @@ public class FireBaseClient {
     private FirebaseAuth firebaseAuth;
     private FirebaseDatabase firebaseDatabase;
     private StorageReference storageReference;
+    private FirebaseUser firebaseUser;
 
     private FireBaseClient() {
     }
@@ -36,6 +38,15 @@ public class FireBaseClient {
         }
         return firebaseDatabase;
     }
+
+    public FirebaseUser getFirebaseUser() {
+        return firebaseUser;
+    }
+
+    public void setFirebaseUser(FirebaseUser firebaseUser) {
+        this.firebaseUser = firebaseUser;
+    }
+
 
     public DatabaseReference getDatabaseReference() {
         if (databaseReference == null) {

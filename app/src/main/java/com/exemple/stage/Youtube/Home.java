@@ -19,10 +19,8 @@ import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.exemple.stage.Adapters.AboutUsAdapter;
-import com.exemple.stage.Company.ContactUs;
-import com.exemple.stage.Payment.OnlineCoaching;
 import com.exemple.stage.Payment.OnlineCoaching2;
-import com.exemple.stage.Profile.Authentification;
+import com.exemple.stage.Profile.Authentication;
 import com.exemple.stage.R;
 import com.exemple.stage.Services.Config;
 import com.exemple.stage.modele.AboutUsItems;
@@ -198,7 +196,7 @@ public class Home extends YouTubeBaseActivity implements NavigationView.OnNaviga
             Intent intent = new Intent(getApplicationContext(), Home.class);
             startActivity(intent);
         } else if (id == R.id.nav_profile) {
-            Intent intent = new Intent(getApplicationContext(), Authentification.class);
+            Intent intent = new Intent(getApplicationContext(), Authentication.class);
             startActivity(intent);
         }
 

@@ -50,7 +50,7 @@ public class EditProfile extends AppCompatActivity {
 
         mProgress = new ProgressDialog(this);
         mProgress.setMessage("Uploading ....");
-
+/*
         findViewById(R.id.textView54).setOnClickListener(v -> openImageFile());
         findViewById(R.id.imageView8).setOnClickListener(v -> openImageFile());
         findViewById(R.id.check).setOnClickListener(v -> startFinish());
@@ -76,6 +76,8 @@ public class EditProfile extends AppCompatActivity {
                     public void onCancelled(@NonNull DatabaseError databaseError) {
                     }
                 });
+
+ */
     }
 
     private void GetView() {
@@ -88,6 +90,7 @@ public class EditProfile extends AppCompatActivity {
         Zip = findViewById(R.id.editText7);
         imageView = findViewById(R.id.imageView8);
     }
+    /*
 
     private void SetData(User CLassUser) {
         Name.setText(CLassUser.name);
@@ -260,5 +263,7 @@ public class EditProfile extends AppCompatActivity {
     protected void onDestroy() {
         super.onDestroy();
     }
+
+     */
 
 }

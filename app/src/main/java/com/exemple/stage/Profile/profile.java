@@ -35,13 +35,14 @@ import org.jetbrains.annotations.NotNull;
 
 import java.util.Objects;
 
+
+@SuppressLint("SetTextI18n")
 public class profile extends AppCompatActivity {
 
 
     TextView ClientName, Abonnerdate, Status;
     ImageView photo;
 
-    @SuppressLint("SetTextI18n")
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -60,7 +61,7 @@ public class profile extends AppCompatActivity {
         findViewById(R.id.floatingActionButton2).setOnClickListener(l2 -> startActivity(new Intent(getApplicationContext(), NewStart.class)));
         findViewById(R.id.floatingActionButton3).setOnClickListener(l3 -> {
             FireBaseClient.getInstance().getFirebaseAuth().signOut();
-            startActivity(new Intent(getApplicationContext(), Authentification.class));
+            startActivity(new Intent(getApplicationContext(), Authentication.class));
         });
         findViewById(R.id.floatingActionButton4).setOnClickListener(l4 -> startActivity(new Intent(getApplicationContext(), ContactUs.class)));
         findViewById(R.id.floatingActionButton5).setOnClickListener(l5 -> startActivity(new Intent(getApplicationContext(), Home.class)));
@@ -82,12 +83,11 @@ public class profile extends AppCompatActivity {
         GetUserData();
     }
 
-    @SuppressLint("SetTextI18n")
     private void GetUserData() {
         FireBaseClient.getInstance().getFirebaseDatabase()
                 .getReference("Users")
                 .orderByChild("gmail")
-                .equalTo(Commun.Email_User)
+                .equalTo(Commun.Current_Client_Gmail)
                 .addValueEventListener(new ValueEventListener() {
                     @Override
                     public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
@@ -116,12 +116,11 @@ public class profile extends AppCompatActivity {
                 });
     }
 
-    @SuppressLint("SetTextI18n")
     private void GetSubscribedData() {
         FireBaseClient.getInstance().getFirebaseDatabase()
                 .getReference("Abonner")
                 .orderByChild("gmail")
-                .equalTo(Commun.Email_User)
+                .equalTo(Commun.Current_Client_Gmail)
                 .addListenerForSingleValueEvent(new ValueEventListener() {
                     @Override
                     public void onDataChange(@NotNull DataSnapshot dataSnapshot) {

@@ -14,7 +14,7 @@ import androidx.navigation.ui.NavigationUI;
 
 import com.exemple.stage.API.FireBaseClient;
 import com.exemple.stage.Company.ActivitySetting;
-import com.exemple.stage.Profile.Authentification;
+import com.exemple.stage.Profile.Authentication;
 import com.exemple.stage.Profile.profile;
 import com.exemple.stage.Youtube.Home;
 import com.google.android.material.navigation.NavigationView;
@@ -108,7 +108,7 @@ public class NewStart extends AppCompatActivity {
                     break;
                 case R.id.nav_deconnecter:
                     FireBaseClient.getInstance().getFirebaseAuth().signOut();
-                    startActivity(new Intent(getApplicationContext(), Authentification.class));
+                    startActivity(new Intent(getApplicationContext(), Authentication.class));
                     break;
             }
             drawer.closeDrawer(GravityCompat.START);

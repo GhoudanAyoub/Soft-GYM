@@ -23,7 +23,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.viewpager.widget.PagerAdapter;
 import androidx.viewpager.widget.ViewPager;
 
-import com.exemple.stage.Profile.Authentification;
+import com.exemple.stage.Profile.Authentication;
 
 public class FirstTime extends AppCompatActivity {
 
@@ -82,7 +82,7 @@ public class FirstTime extends AppCompatActivity {
         viewPager.addOnPageChangeListener(viewPagerPageChangeListener);
 
         SKIP.setOnClickListener(v -> {
-            Intent intent = new Intent(getApplicationContext(), Authentification.class);
+            Intent intent = new Intent(getApplicationContext(), Authentication.class);
             startActivity(intent);
         });
         next.setOnClickListener(v -> {
@@ -90,7 +90,7 @@ public class FirstTime extends AppCompatActivity {
             if (current < layouts.length) {
                 viewPager.setCurrentItem(current);
             } else {
-                Intent intent = new Intent(getApplicationContext(), Authentification.class);
+                Intent intent = new Intent(getApplicationContext(), Authentication.class);
                 startActivity(intent);
             }
         });

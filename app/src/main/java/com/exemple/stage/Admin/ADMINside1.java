@@ -15,7 +15,7 @@ import androidx.drawerlayout.widget.DrawerLayout;
 
 import com.exemple.stage.ExercicesActivity;
 import com.exemple.stage.PlanningActivity;
-import com.exemple.stage.Profile.Authentification;
+import com.exemple.stage.Profile.Authentication;
 import com.exemple.stage.R;
 import com.exemple.stage.message;
 import com.exemple.stage.modele.User;
@@ -208,7 +208,7 @@ public class ADMINside1 extends AppCompatActivity
             startActivity(intent);
         } else if (id == R.id.nav_exit) {
             mAuth.signOut();
-            Intent intent = new Intent(ADMINside1.this, Authentification.class);
+            Intent intent = new Intent(ADMINside1.this, Authentication.class);
             startActivity(intent);
         } else if (id == R.id.nav_videoList) {
             Intent intent = new Intent(ADMINside1.this, ExercicesActivity.class);

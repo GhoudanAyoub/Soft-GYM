@@ -35,11 +35,6 @@
             android:name=".NewStart"
             android:label="@string/title_activity_new_start"
             android:theme="@style/AppTheme.NoActionBar">
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
-
-                <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>
         </activity>
 
         <activity
@@ -68,14 +63,19 @@
             android:label="@string/title_activity_profile"
             android:theme="@style/AppTheme.NoActionBar" />
         <activity android:name=".Profile.CreateAccount" />
-        <activity android:name=".Profile.Authentification" />
+        <activity android:name=".Profile.Authentication" />
         <activity android:name=".Payment.OnlineCoaching" />
         <activity android:name=".Company.ContactUs" />
         <activity
             android:name=".Youtube.Home"
             android:label="@string/title_activity_home"
             android:theme="@style/AppTheme.NoActionBar" />
-        <activity android:name=".SpalshScreen">
+        <activity android:name=".SplashScreen">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
         </activity>
         <activity
             android:name="com.theartofdev.edmodo.cropper.CropImageActivity"
