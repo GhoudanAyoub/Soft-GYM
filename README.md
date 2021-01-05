@@ -1,4 +1,4 @@
-# SoftGym
+# \[ 🚧 Work in progress 👷‍♀️⛏👷🔧️👷🔧 🚧 \] # SoftGym
 ![appicon](https://github.com/GhoudanAyoub/softGym2/blob/master/app/src/main/res/mipmap-xxhdpi/softgym.png)
 
 SoftGym an online sports club application that aims to do sport in the home for women, after making a payment this application offers a collection of videos of the sport made by a professional coach. The main goal of this app is to be a sample of how to build an high quality Android application that uses the Architecture components, FireBase, Reactivex etc. in java.
