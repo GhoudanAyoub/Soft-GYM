@@ -72,35 +72,6 @@ public class Authentication extends AppCompatActivity {
                 .subscribe(unit -> {
                     findViewById(R.id.buttonphone).setClickable(false);
                     PreBuildLogin();});
-/*
-        RxView.clicks(findViewById(R.id.LogIn))
-                .throttleFirst(5, TimeUnit.SECONDS)
-                .observeOn(AndroidSchedulers.mainThread())
-                .subscribe(new Observer<Unit>() {
-                    @Override
-                    public void onSubscribe(Disposable d) {
-                        compositeDisposable.add(d);
-                    }
-
-                    @Override
-                    public void onNext(Unit unit) {
-                        LoginUser(Objects.requireNonNull(email.getEditText()).getText().toString(), Objects.requireNonNull(password.getEditText()).getText().toString());
-                        progressDialog.show();
-                    }
-
-                    @Override
-                    public void onError(Throwable e) {
-                        Toast.makeText(getApplicationContext(), "Error", Toast.LENGTH_SHORT).show();
-                    }
-
-                    @Override
-                    public void onComplete() {
-                        Toast.makeText(getApplicationContext(), "Done!!!!Welcome", Toast.LENGTH_SHORT).show();
-                    }
-                });
-
- */
-
     }
 
     private void checkUserFromDataBase(FirebaseUser user) {
