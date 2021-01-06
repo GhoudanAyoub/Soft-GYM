@@ -94,9 +94,9 @@ public class profile extends AppCompatActivity {
                         if (dataSnapshot.exists()) {
                             for (DataSnapshot dataSnapshot1 : dataSnapshot.getChildren()) {
                                 try {
-                                    ClientName.setText(Objects.requireNonNull(dataSnapshot1.getValue(User.class)).name);
+                                    ClientName.setText(Objects.requireNonNull(dataSnapshot1.getValue(User.class)).getName());
                                     Glide.with(getApplicationContext())
-                                            .load(Objects.requireNonNull(dataSnapshot1.getValue(User.class)).image)
+                                            .load(Objects.requireNonNull(dataSnapshot1.getValue(User.class)).getImage())
                                             .centerCrop()
                                             .placeholder(R.drawable.no_image_available)
                                             .into(photo);

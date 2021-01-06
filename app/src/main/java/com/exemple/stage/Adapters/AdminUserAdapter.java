@@ -46,15 +46,15 @@ public class AdminUserAdapter extends RecyclerView.Adapter<AdminUserAdapter.View
     public void onBindViewHolder(@NonNull final ViewHolder holder, int position) {
         final User User = mUser.get(position);
         holder.IDCLient.setText(User.getIDUsers());
-        holder.NameCLient.setText(User.name);
-        holder.GmailCLient.setText(User.gmail);
-        holder.AbonnerTypeCLient.setText(Integer.toString(User.Days));
+        holder.NameCLient.setText(User.getName());
+        holder.GmailCLient.setText(User.getGmail());
+        holder.AbonnerTypeCLient.setText(Integer.toString(User.getDays()));
         holder.DatedeFinCLient.setText("");
 
         databaseReference2 = FirebaseDatabase.getInstance().getReference("Users");
         databaseReference = FirebaseDatabase.getInstance().getReference("Abonner");
 
-        databaseReference.orderByChild("gmail").equalTo(User.gmail).addListenerForSingleValueEvent(new ValueEventListener() {
+        databaseReference.orderByChild("gmail").equalTo(User.getGmail()).addListenerForSingleValueEvent(new ValueEventListener() {
             @Override
             public void onDataChange(DataSnapshot dataSnapshot) {
                 if (dataSnapshot.exists()) {
@@ -82,7 +82,7 @@ public class AdminUserAdapter extends RecyclerView.Adapter<AdminUserAdapter.View
                 if (!holder.EtatCLient.isChecked()) {
                     holder.EtatCLient.setChecked(false);
                     //abonner
-                    databaseReference.orderByChild("gmail").equalTo(User.gmail).addListenerForSingleValueEvent(new ValueEventListener() {
+                    databaseReference.orderByChild("gmail").equalTo(User.getGmail()).addListenerForSingleValueEvent(new ValueEventListener() {
                         @Override
                         public void onDataChange(DataSnapshot dataSnapshot) {
                             if (dataSnapshot.exists()) {
@@ -105,7 +105,7 @@ public class AdminUserAdapter extends RecyclerView.Adapter<AdminUserAdapter.View
                         }
                     });
                     //Users
-                    databaseReference2.orderByChild("gmail").equalTo(User.gmail).addListenerForSingleValueEvent(new ValueEventListener() {
+                    databaseReference2.orderByChild("gmail").equalTo(User.getGmail()).addListenerForSingleValueEvent(new ValueEventListener() {
                         @Override
                         public void onDataChange(DataSnapshot dataSnapshot) {
                             if (dataSnapshot.exists()) {
@@ -117,16 +117,13 @@ public class AdminUserAdapter extends RecyclerView.Adapter<AdminUserAdapter.View
                                     String key = databaseReference2.push().getKey();
                                     DatabaseReference newPost = databaseReference2.push();
                                     newPost.child("IDUsers").setValue(key);
-                                    newPost.child("City").setValue(user.City);
-                                    newPost.child("Zip").setValue(user.Zip);
-                                    newPost.child("Country").setValue(user.Country);
-                                    newPost.child("Phone").setValue(user.Phone);
-                                    newPost.child("Address").setValue(user.Address);
-                                    newPost.child("name").setValue(user.name);
-                                    newPost.child("image").setValue(user.image);
-                                    newPost.child("gmail").setValue(user.gmail);
+                                    newPost.child("Phone").setValue(user.getPhone());
+                                    newPost.child("Address").setValue(user.getAddress());
+                                    newPost.child("name").setValue(user.getGmail());
+                                    newPost.child("image").setValue(user.getImage());
+                                    newPost.child("gmail").setValue(user.getGmail());
                                     newPost.child("status").setValue("");
-                                    newPost.child("Days").setValue(user.Days);
+                                    newPost.child("Days").setValue(user.getDays());
                                 }
                             } else {
                                 Toast.makeText(mContext, "Error No Data Found !!", Toast.LENGTH_LONG).show();
@@ -140,7 +137,7 @@ public class AdminUserAdapter extends RecyclerView.Adapter<AdminUserAdapter.View
                 } else {
                     holder.EtatCLient.setChecked(true);
 
-                    databaseReference.orderByChild("gmail").equalTo(User.gmail).addListenerForSingleValueEvent(new ValueEventListener() {
+                    databaseReference.orderByChild("gmail").equalTo(User.getGmail()).addListenerForSingleValueEvent(new ValueEventListener() {
                         @Override
                         public void onDataChange(DataSnapshot dataSnapshot) {
                             if (dataSnapshot.exists()) {
@@ -154,7 +151,7 @@ public class AdminUserAdapter extends RecyclerView.Adapter<AdminUserAdapter.View
                                     newPost2.child("status").setValue("approved");
 
                                 }
-                                databaseReference2.orderByChild("gmail").equalTo(User.gmail).addListenerForSingleValueEvent(new ValueEventListener() {
+                                databaseReference2.orderByChild("gmail").equalTo(User.getGmail()).addListenerForSingleValueEvent(new ValueEventListener() {
                                     @Override
                                     public void onDataChange(DataSnapshot dataSnapshot) {
                                         if (dataSnapshot.exists()) {
@@ -166,16 +163,13 @@ public class AdminUserAdapter extends RecyclerView.Adapter<AdminUserAdapter.View
                                                 String key = databaseReference2.push().getKey();
                                                 DatabaseReference newPost = databaseReference2.push();
                                                 newPost.child("IDUsers").setValue(key);
-                                                newPost.child("City").setValue(user.City);
-                                                newPost.child("Zip").setValue(user.Zip);
-                                                newPost.child("Country").setValue(user.Country);
-                                                newPost.child("Phone").setValue(user.Phone);
-                                                newPost.child("Address").setValue(user.Address);
-                                                newPost.child("name").setValue(user.name);
-                                                newPost.child("image").setValue(user.image);
-                                                newPost.child("gmail").setValue(user.gmail);
+                                                newPost.child("Phone").setValue(user.getPhone());
+                                                newPost.child("Address").setValue(user.getAddress());
+                                                newPost.child("name").setValue(user.getGmail());
+                                                newPost.child("image").setValue(user.getImage());
+                                                newPost.child("gmail").setValue(user.getGmail());
                                                 newPost.child("status").setValue("approved");
-                                                newPost.child("Days").setValue(user.Days);
+                                                newPost.child("Days").setValue(user.getDays());
                                             }
                                         }
                                     }
@@ -188,7 +182,7 @@ public class AdminUserAdapter extends RecyclerView.Adapter<AdminUserAdapter.View
                             } else {
                                 DatabaseReference newPost2 = databaseReference.push();
                                 newPost2.child("days").setValue(1);
-                                newPost2.child("gmail").setValue(User.gmail);
+                                newPost2.child("gmail").setValue(User.getGmail());
                                 newPost2.child("status").setValue("approved");
                             }
                         }

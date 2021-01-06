@@ -336,5 +336,6 @@ limitations under the License.
     <string name="home_second">Home Second</string>
     <string name="WelcomeBack">"Welcome Back Mr "</string>
     <string name="connect_with_google">Connect With Google</string>
+    <string name="AccountCreatedWithSuccess">Welcome to Your  New Beginning</string>
 </resources>
 

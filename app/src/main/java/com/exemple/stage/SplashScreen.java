@@ -76,11 +76,11 @@ public class SplashScreen extends AppCompatActivity {
                                     FireBaseClient.getInstance().setFirebaseUser(user);
                                     Toasty.success(getApplicationContext(),getString(R.string.WelcomeBack) + user.getDisplayName(), Toasty.LENGTH_SHORT).show();
                                     startActivity(new Intent(getApplicationContext(), NewStart.class));
-                                }else {
-                                    FireBaseClient.getInstance().setFirebaseUser(user);
-                                    startActivity(new Intent(getApplicationContext(), Authentication.class));
                                 }
                             }
+                        }else {
+                            FireBaseClient.getInstance().setFirebaseUser(user);
+                            startActivity(new Intent(getApplicationContext(), Authentication.class));
                         }
                     }
 

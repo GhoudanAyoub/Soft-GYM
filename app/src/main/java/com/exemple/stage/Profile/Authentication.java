@@ -88,11 +88,11 @@ public class Authentication extends AppCompatActivity {
                                     FireBaseClient.getInstance().setFirebaseUser(user);
                                     Toast.makeText(getApplicationContext(), " مرحبا بعودتك " + user.getDisplayName(), Toast.LENGTH_SHORT).show();
                                     startActivity(new Intent(getApplicationContext(), NewStart.class));
-                                }else {
-                                    FireBaseClient.getInstance().setFirebaseUser(user);
-                                    startActivity(new Intent(getApplicationContext(), CreateAccount.class));
                                 }
                             }
+                        }else {
+                            FireBaseClient.getInstance().setFirebaseUser(user);
+                            startActivity(new Intent(getApplicationContext(), CreateAccount.class));
                         }
                     }
 

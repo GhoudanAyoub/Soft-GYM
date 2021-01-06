@@ -105,6 +105,7 @@ public class OnlineCoaching2 extends AppCompatActivity {
 
     @Override
     protected void onActivityResult(int requestCode, int resultCode, Intent data) {
+        super.onActivityResult(requestCode, resultCode, data);
         if (resultCode == Activity.RESULT_OK) {
             PaymentConfirmation confirm = data.getParcelableExtra(PaymentActivity.EXTRA_RESULT_CONFIRMATION);
             if (confirm != null) {
@@ -139,14 +140,11 @@ public class OnlineCoaching2 extends AppCompatActivity {
                                                 String key2 = reference.push().getKey();
                                                 DatabaseReference newPost = reference.push();
                                                 newPost.child("IDUsers").setValue(key2);
-                                                newPost.child("City").setValue(user.City);
-                                                newPost.child("Zip").setValue(user.Zip);
-                                                newPost.child("Country").setValue(user.Country);
-                                                newPost.child("Phone").setValue(user.Phone);
-                                                newPost.child("Address").setValue(user.Address);
-                                                newPost.child("name").setValue(user.name);
-                                                newPost.child("image").setValue(user.image);
-                                                newPost.child("gmail").setValue(user.gmail);
+                                                newPost.child("Phone").setValue(user.getPhone());
+                                                newPost.child("Address").setValue(user.getAddress());
+                                                newPost.child("name").setValue(user.getGmail());
+                                                newPost.child("image").setValue(user.getImage());
+                                                newPost.child("gmail").setValue(user.getGmail());
                                                 newPost.child("status").setValue(jsonObject.getJSONObject("response").getString("state"));
                                                 newPost.child("Days").setValue(key);
                                             } catch (JSONException e) {

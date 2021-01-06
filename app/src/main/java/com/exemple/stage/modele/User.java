@@ -9,12 +9,12 @@ public class User {
 
 
     private String IDUsers;
-    public String name;
-    public String gmail;
-    public String Phone;
-    public String image;
-    public String Address;
-    public int Days;
+    private String name;
+    private String gmail;
+    private String Phone;
+    private String image;
+    private String Address;
+    private int Days;
     private String status;
 
     public User() { }

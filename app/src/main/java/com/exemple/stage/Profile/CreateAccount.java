@@ -26,6 +26,7 @@ import com.jakewharton.rxbinding3.view.RxView;
 import java.util.Objects;
 import java.util.concurrent.TimeUnit;
 
+import es.dmoral.toasty.Toasty;
 import io.reactivex.Observer;
 import io.reactivex.android.schedulers.AndroidSchedulers;
 import io.reactivex.disposables.CompositeDisposable;
@@ -103,9 +104,14 @@ public class CreateAccount extends AppCompatActivity {
         if (key!=null)
             FirebaseDatabase.getInstance()
                     .getReference(Commun.User_Class_Name)
-                    .child(key)
-                    .setValue(new User(key,name,email,phone))
-                    .addOnFailureListener(Throwable::printStackTrace);
+                    .push()
+                    .setValue(new User(Commun.Current_Client_Id,name,email,phone))
+                    .addOnFailureListener(Throwable::printStackTrace)
+                    .addOnSuccessListener(aVoid -> {
+                        Toasty.success(getApplicationContext(),getString(R.string.AccountCreatedWithSuccess),Toasty.LENGTH_SHORT).show();
+                        startActivity(new Intent(getApplicationContext(),NewStart.class));
+                            }
+                    );
     }
 
     @Override
