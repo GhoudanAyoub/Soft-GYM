@@ -14,7 +14,6 @@ import androidx.core.view.GravityCompat;
 import androidx.drawerlayout.widget.DrawerLayout;
 
 import com.exemple.stage.ExercicesActivity;
-import com.exemple.stage.PlanningActivity;
 import com.exemple.stage.Profile.Authentication;
 import com.exemple.stage.R;
 import com.exemple.stage.message;
@@ -214,8 +213,8 @@ public class ADMINside1 extends AppCompatActivity
             Intent intent = new Intent(ADMINside1.this, ExercicesActivity.class);
             startActivity(intent);
         } else if (id == R.id.nav_Planning) {
-            Intent intent = new Intent(ADMINside1.this, PlanningActivity.class);
-            startActivity(intent);
+            //Intent intent = new Intent(ADMINside1.this, PlanningActivity.class);
+            //startActivity(intent);
         }
 
         DrawerLayout drawer = findViewById(R.id.drawer_layout);

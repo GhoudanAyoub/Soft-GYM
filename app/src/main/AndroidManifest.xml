@@ -49,7 +49,6 @@
         <activity android:name=".Admin.AdminUsersListActivity" />
         <activity android:name=".Profile.EditProfile" />
         <activity android:name=".ListOfSongsActivity" />
-        <activity android:name=".PlanningActivity" />
         <activity android:name=".Youtube.VideoACtivit" />
         <activity android:name=".Admin.AddPractice" />
         <activity android:name=".ExercicesActivity" />

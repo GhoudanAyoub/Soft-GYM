@@ -207,13 +207,11 @@ public class message extends AppCompatActivity {
         super.onResume();
         status("online");
         currentUser(userid);
-        //seenMessage(userid);
     }
 
     @Override
     protected void onPause() {
         super.onPause();
-        //reference.removeEventListener(seenListener);
         status("offline");
         currentUser("none");
     }

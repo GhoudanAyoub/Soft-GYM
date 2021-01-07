@@ -13,6 +13,10 @@ public class Commun {
     public static final String Current_Client_DispalyName = FireBaseClient.getInstance().getFirebaseUser().getDisplayName();
     public static final String Current_Client_Gmail = FireBaseClient.getInstance().getFirebaseUser().getEmail();
     public static final String CLIENT_TOKEN_REFERENCE = "ClientToken" ;
-    public static final String User_Class_Name = "Users";
     public static final String Email_User = Current_Client_Gmail;
+
+
+    // Model name
+    public static final String User_Class_Name = "Users";
+    public static final String Videos_Class_Name = "Videos";
 }

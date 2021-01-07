@@ -76,10 +76,7 @@ public class VideoACtivit extends YouTubeBaseActivity implements YouTubePlayer.O
                         uriPath = Videos.getVideo();
                         //vv.setVideoPath(uriPath);
                         Name.setText(Videos.getVideoName());
-                        textView37.setText(Videos.getChapter1());
-                        textView39.setText(Videos.getChapter2());
-                        textView41.setText(Videos.getChapter3());
-                        textView43.setText(Videos.getOther());
+                        textView37.setText(Videos.getChapter().get(0));
                     } else {
                         Toast.makeText(getApplicationContext(), "No data Found !!", Toast.LENGTH_LONG).show();
                     }
